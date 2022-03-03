@@ -1,6 +1,15 @@
 <template>
   <div>
     <Navbar></Navbar>
+    <div class="container-fluid p-0">
+      <div class="row">
+        <Side_menu></Side_menu>
+        <div class="col">
+          <div class="buttons_create">
+            <div>
+              <h3 class="font-weight-bold mb-3">О нас</h3>
+            </div>
+          </div>
     <div class=" main_card">
       <b-card no-body>
         <div class="row">
@@ -317,12 +326,17 @@
       </b-card>
     </div>
   </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
+import Side_menu from '../../components/Side_menu'
 import Navbar from "../../components/Navbar";
 export default {
   components: {
-    Navbar
+    Navbar,
+    Side_menu
   },
   data(){
     return{

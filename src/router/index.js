@@ -511,12 +511,47 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Opendata/Edit')
   },
+  {
+    path: '/objects',
+    name: '',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/objects/index')
+  },
+  {
+    path: '/objects/create',
+    name: '',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/objects/Create')
+  },
+  {
+    path: '/objects/edit',
+    name: '',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/objects/Edit')
+  },
 ]
+
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
-
+  routes,
+  scrollBehavior: (to, from, savedPosition) => {
+    if (savedPosition) {
+      return savedPosition;
+    } else if (to.hash) {
+      return {
+        selector: to.hash
+      };
+    } else {
+      return { x: 0, y: 0 };
+    }
+  }
+});
 export default router

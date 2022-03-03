@@ -103,6 +103,11 @@
             <span class="sidebar-text">Открытые данные</span>
           </router-link>
         </div>
+        <div class="nav-items">
+          <router-link to="/objects" class="nav-link d-flex align-items-center">
+            <span class="sidebar-text">Объекты</span>
+          </router-link>
+        </div>
       </div>
     </div>
       </div>
