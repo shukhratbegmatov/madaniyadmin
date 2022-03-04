@@ -27,7 +27,11 @@ export default new Vuex.Store({
     object:[],
     abouts:[],
     subs:[],
-    isactive:true
+    isactive:true,
+    heritage_category:[],
+    appeal:[],
+    heritage_main:[],
+    contacts:[]
   },
 
   actions: {
@@ -83,6 +87,16 @@ export default new Vuex.Store({
             state.council_advice=res.data
           })
     },
+    appeal({state}){
+      axios.get('/api/appeal/',{
+        headers:{
+          'Accept-Language':localStorage.getItem('lang')
+        }
+      })
+          .then(res=>{
+            state.appeal=res.data
+          })
+    },
     sutructure({state}){
       axios.get('/api/structure',{
         headers:{
@@ -124,6 +138,16 @@ export default new Vuex.Store({
             state.document=res.data
           })
     },
+    contact_func({state},creditailes){
+      axios.get('/api/contact?page_size'+creditailes.page_size,{
+        headers:{
+          'Accept-Language':localStorage.getItem('lang')
+        }
+      })
+          .then(res=>{
+            state.contacts=res.data
+          })
+    },
 
     museum({state}){
       axios.get('/api/museum',{
@@ -137,7 +161,7 @@ export default new Vuex.Store({
     },
 
     news({state}){
-      axios.get('/api/news',{
+      axios.get('/api/news?page=1000',{
         headers:{
           'Accept-Language':localStorage.getItem('lang')
         }
@@ -242,6 +266,37 @@ export default new Vuex.Store({
             state.abouts=res.data
           })
     },
+    heritage({state}){
+      axios.get('/api/heritage-category',{
+        headers:{
+          'Accept-Language':localStorage.getItem('lang')
+        }
+      })
+          .then(res=>{
+            state.heritage_category=res.data
+          })
+    },
+    heritage_main({state},cre){
+      axios.get('/api/heritage?page='+cre.page_size,{
+        headers:{
+          'Accept-Language':localStorage.getItem('lang')
+        }
+      })
+          .then(res=>{
+            state.heritage_main=res.data
+          })
+    },
+    heritage_search({state},cre){
+      axios.get('/api/heritage?name='+cre,{
+        headers:{
+          'Accept-Language':localStorage.getItem('lang')
+        }
+      })
+          .then(res=>{
+            state.heritage_main=res.data
+          })
+    },
+
 
     subs({state}){
       axios.get('/api/subs',{

@@ -39,7 +39,7 @@
 
               <div class="form-inline">
                 <div class="form-group mx-sm-3 mb-2">
-                  <input type="password" class="form-control" id="inputPassword2" placeholder="Search">
+                  <input type="text" class="form-control" id="inputPassword2" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Search</button>
               </div>
@@ -74,16 +74,18 @@
 
             </tbody>
           </table>
-          <div class="container" v-if="false">
-            <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-              </ul>
-            </nav>
+          <div class="pagenations">
+            <paginate
+                :page-count="$store.state.document.total_pages"
+                :page-range="3"
+                :margin-pages="2"
+                :click-handler="clickCallback"
+                :prev-text="'Prev'"
+                :next-text="'Next'"
+                :container-class="'pagination'"
+                :page-class="'page-item'"
+            >
+            </paginate>
           </div>
         </div>
       </div>

@@ -27596,3 +27596,8 @@ article .h6 {
     background-color: #4B49AC !important;
     border-color: #4B49AC;
 }
+
+.card .pagenations a{
+    padding: 10px;
+    color: #ffffff;
+}

@@ -34,35 +34,59 @@
                       <option value="40">100</option>
                     </select>
                   </div>
-                  <form>
+                  <form @submit.prevent="searchs">
 
                     <div class="form-inline">
                       <div class="form-group mx-sm-3 mb-2">
-                        <input type="password" class="form-control" id="inputPassword2" placeholder="Search">
+                        <input type="text" v-model="search_name" class="form-control" id="inputPassword2" placeholder="Search">
                       </div>
                       <button type="submit" class="btn btn-primary mb-2">Search</button>
                     </div>
                   </form>
                 </div>
-                <b-table
-                    id="my-table"
-                    :items="items"
-                    :per-page="perPage"
-                    :current-page="currentPage"
-                    small
-                >
-                  <template #cell(show_details)="row">
-                    <b-button size="sm" @click="row.toggleDetails" class="mr-2">
-                      dsamsakl
-                    </b-button>
-                  </template>
-                </b-table>
-                <b-pagination
-                    v-model="currentPage"
-                    :total-rows="rows"
-                    :per-page="perPage"
-                    aria-controls="my-table"
-                ></b-pagination>
+                <table class="table table-flush" id="datatable">
+                  <thead class="thead-light">
+                  <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Create at</th>
+                    <th>Update at</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody v-if=" $store.state.heritage_main.results">
+
+                  <tr v-for="(item,index) in  $store.state.heritage_main.results" :key="index">
+
+                    <td><div class="father_tabel">{{ item.id }}</div></td>
+                    <td><div class="father_tabel" v-html="item.title"></div></td>
+                    <td><div class="father_tabel">{{ item.created_on }}</div></td>
+                    <td><div class="father_tabel">{{ item.updated_on }}</div></td>
+                    <td>
+                      <router-link :to="'/objects/edit?id='+item.id" class="btn">
+                        <b-icon icon="pencil" scale="1" variant="white"></b-icon>
+                      </router-link>
+                      <button class="btn" @click="deletes(item=item.id)">
+                        <b-icon icon="x-circle" scale="1" variant="danger"></b-icon>
+                      </button>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+                <div class="pagenations">
+                  <paginate
+                      :page-count="$store.state.heritage_main.total_pages"
+                      :page-range="3"
+                      :margin-pages="2"
+                      :click-handler="clickCallback"
+                      :prev-text="'Prev'"
+                      :next-text="'Next'"
+                      :container-class="'pagination'"
+                      :page-class="'page-item'"
+                  >
+                  </paginate>
+                </div>
               </div>
             </div>
           </div>
@@ -83,35 +107,28 @@ export default {
   data() {
     return {
       data: [],
-      page_size:10,
-      perPage: 3,
-      currentPage: 1,
-      items: [
-        { id: 1, first_name: 'Fred', last_name: 'Flintstone',Action:'' },
-        { id: 2, first_name: 'Wilma', last_name: 'Flintstone' ,Action:''},
-        { id: 3, first_name: 'Barney', last_name: 'Rubble',Action:'' },
-        { id: 4, first_name: 'Betty', last_name: 'Rubble' ,Action:''},
-        { id: 5, first_name: 'Pebbles', last_name: 'Flintstone' ,Action:''},
-        { id: 6, first_name: 'Bamm Bamm', last_name: 'Rubble' ,Action:''},
-        { id: 7, first_name: 'The Great', last_name: 'Gazzoo',Action:'' },
-        { id: 8, first_name: 'Rockhead', last_name: 'Slate' ,Action:''},
-        { id: 9, first_name: 'Pearl', last_name: 'Slaghoople' ,Action:''}
-      ]
+      page_size:1,
+      search_name:''
     }
   },
-  computed: {
-    rows() {
-      return this.items.length
-    }
-  },
+
   mounted() {
-    this.$store.dispatch('about',{
+    this.$store.dispatch('heritage_main',{
       "page_size":this.page_size
     })
   },
   methods: {
+    clickCallback (pageNum){
+    console.log(pageNum)
+      this.$store.dispatch('heritage_main',{
+        "page_size":pageNum
+      })
+    },
+    searchs(){
+      this.$store.dispatch('heritage_search',this.search_name)
+    },
     selected_page_size(){
-      this.$store.dispatch('about',{
+      this.$store.dispatch('heritage_main',{
         "page_size":this.page_size
       })
     },
@@ -119,7 +136,7 @@ export default {
 
       let isBoss = confirm("You really want to delete?");
       if (isBoss == true) {
-        this.$http.delete('/api/about/' + item + '/',
+        this.$http.delete('/api/heritage/' + item + '/',
             {
               headers: {
                 'Authorization': 'Token ' + localStorage.getItem('m_token'),
@@ -151,5 +168,9 @@ export default {
 .custom-select {
   height: 30px;
   margin: 20px;
+}
+.card .pagenations a{
+  padding: 10px;
+  color: #ffffff;
 }
 </style>

@@ -104,8 +104,23 @@
           </router-link>
         </div>
         <div class="nav-items">
+          <router-link to="/objects_category" class="nav-link d-flex align-items-center">
+            <span class="sidebar-text">Категории Объекты</span>
+          </router-link>
+        </div>
+        <div class="nav-items">
           <router-link to="/objects" class="nav-link d-flex align-items-center">
             <span class="sidebar-text">Объекты</span>
+          </router-link>
+        </div>
+        <div class="nav-items">
+          <router-link to="/appeal" class="nav-link d-flex align-items-center">
+            <span class="sidebar-text">Центр связи</span>
+          </router-link>
+        </div>
+        <div class="nav-items">
+          <router-link to="/contact" class="nav-link d-flex align-items-center">
+            <span class="sidebar-text">Контакты</span>
           </router-link>
         </div>
       </div>
@@ -123,6 +138,7 @@
   padding-top: 70px;
   overflow-x: hidden;
   padding-left: 15px;
+  height: 100%;
 }
 .mw_menus.active{
   max-width: 0;

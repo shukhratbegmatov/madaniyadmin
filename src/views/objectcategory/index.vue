@@ -3,35 +3,35 @@
     <Navbar></Navbar>
     <div class="container-fluid p-0">
       <div class="row">
-          <Side_menu></Side_menu>
+        <Side_menu></Side_menu>
         <div class="col">
           <div class="buttons_create">
             <div>
-              <h3 class="font-weight-bold mb-3">Слайдер</h3>
+              <h3 class="font-weight-bold mb-3">Категории Объекты</h3>
             </div>
-              <div>
-                <router-link to="/slider/create"
-                             class="btn bg-primary  text-white d-inline-flex align-items-center me-2"
-                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Добавить
-                  <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                       xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                  </svg>
-                </router-link>
-              </div>
           </div>
           <div class=" main_card">
             <div class="mains_card_child">
               <div class="card">
+                <div class="p-3">
+                  <router-link to="/objects_category/create"
+                               class="btn bg-primary  text-white d-inline-flex align-items-center me-2"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    Create
+                  </router-link>
+                </div>
                 <div class="d-flex">
                   <div class="input-group mb-3">
                     <select v-model="page_size" @change="selected_page_size()" class="custom-select">
                       <option value="10" selected>10</option>
                       <option value="20">20</option>
                       <option value="30">30</option>
-                      <option value="40">All</option>
+                      <option value="40">100</option>
                     </select>
                   </div>
                   <form>
@@ -44,23 +44,26 @@
                     </div>
                   </form>
                 </div>
-                <table id="my-table"
-                       :items="items"
-                       :per-page="perPage"
-                       class="table table-flush">
-                  <thead>
+                <table class="table table-flush" id="datatable">
+                  <thead class="thead-light">
                   <tr>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Create at</th>
+                    <th>Update at</th>
                     <th>Action</th>
                   </tr>
                   </thead>
-                  <tbody v-if=" $store.state.slider">
-                  <tr v-for="(item,index) in  $store.state.slider" :key="index">
+                  <tbody v-if=" $store.state.heritage_category.results">
+
+                  <tr v-for="(item,index) in  $store.state.heritage_category.results" :key="index">
+
                     <td><div class="father_tabel">{{ item.id }}</div></td>
-                    <td><div class="father_tabel">{{ item.title }}</div></td>
+                    <td><div class="father_tabel" v-html="item.title"></div></td>
+                    <td><div class="father_tabel">{{ item.created_on }}</div></td>
+                    <td><div class="father_tabel">{{ item.updated_on }}</div></td>
                     <td>
-                      <router-link :to="'/slider/edit?id='+item.id" class="btn">
+                      <router-link :to="'/objects_category/edit?id='+item.id" class="btn">
                         <b-icon icon="pencil" scale="1" variant="white"></b-icon>
                       </router-link>
                       <button class="btn" @click="deletes(item=item.id)">
@@ -70,9 +73,20 @@
                   </tr>
 
                   </tbody>
-
                 </table>
-
+                <div class="pagenations">
+                  <paginate
+                      :page-count="$store.state.heritage_main.total_pages"
+                      :page-range="3"
+                      :margin-pages="2"
+                      :click-handler="clickCallback"
+                      :prev-text="'Prev'"
+                      :next-text="'Next'"
+                      :container-class="'pagination'"
+                      :page-class="'page-item'"
+                  >
+                  </paginate>
+                </div>
               </div>
             </div>
           </div>
@@ -82,27 +96,29 @@
   </div>
 </template>
 <script>
-import Side_menu from "../../components/Side_menu";
+import Side_menu from '../../components/Side_menu'
 import Navbar from "../../components/Navbar";
+
 export default {
-  components: {Navbar, Side_menu},
+  components: {
+    Navbar,
+    Side_menu
+  },
   data() {
     return {
       data: [],
-      page_size:10,
-      perPage: 3,
-      currentPage: 1
+      page_size:10
     }
   },
 
   mounted() {
-    this.$store.dispatch('slider',{
+    this.$store.dispatch('heritage',{
       "page_size":this.page_size
     })
   },
   methods: {
     selected_page_size(){
-      this.$store.dispatch('slider',{
+      this.$store.dispatch('heritage',{
         "page_size":this.page_size
       })
     },
@@ -110,7 +126,7 @@ export default {
 
       let isBoss = confirm("You really want to delete?");
       if (isBoss == true) {
-        this.$http.delete('/api/slider/' + item + '/',
+        this.$http.delete('/api/heritage-category/' + item + '/',
             {
               headers: {
                 'Authorization': 'Token ' + localStorage.getItem('m_token'),
