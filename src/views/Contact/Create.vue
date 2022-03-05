@@ -16,66 +16,7 @@
               <div class="row">
                 <div class="col-md-9">
                   <b-tabs card>
-                    <b-tab title="Rus" active>
-                      <b-card-text>
-                        <form @submit.prevent="post_ru()">
-                          <div class="row">
-                            <div class="col-md-12  mb-3">
-                              <div>
-                                <label for="first_name">address</label>
-                                <input class="form-control" id="first_namee" v-model="address1" type="text"  required>
-                              </div>
-                            </div>
-                            <div class="col-md-12  mb-3">
-                              <div>
-                                <label for="first_name">by_bus</label>
-                                <input class="form-control" id="first_namee" v-model="by_bus1" type="text"  required>
-                              </div>
-                            </div>
-                            <div class="col-md-12  mb-3">
-                              <div>
-                                <label for="first_name">by_metro</label>
-                                <input class="form-control" id="first_namee" v-model="by_metro1" type="text"  required>
-                              </div>
-                            </div>
-                            <div class="col-md-12  mb-3">
-                              <div>
-                                <label for="first_name">order</label>
-                                <input class="form-control" id="first_namee" v-model="order1" type="text"  required>
-                              </div>
-                            </div>
-                            <div class="col-md-12  mb-3">
-                              <div>
-                                <label for="first_name">reference_point</label>
-                                <input class="form-control" id="first_namee" v-model="reference_point1" type="text"  required>
-                              </div>
-                            </div>
-                            <div class="col-md-12  mb-3">
-                              <div>
-                                <label for="first_name">working_days</label>
-                                <input class="form-control" id="first_namee" v-model="working_days1" type="text"  required>
-                              </div>
-                            </div>
-                            <div class="col-md-12  mb-3">
-                              <div>
-                                <label for="first_name">lunch</label>
-                                <input class="form-control" id="first_namee" v-model="lunch1" type="text"  required>
-                              </div>
-                            </div>
-                            <div class="col-md-12  mb-3">
-                              <div>
-                                <label for="first_name">weekend</label>
-                                <input class="form-control" id="first_namee" v-model="weekend1" type="text"  required>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="mt-3">
-                            <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
-                          </div>
-                        </form>
-                      </b-card-text>
-                    </b-tab>
-                    <b-tab title="Uzbek lotin" >
+                    <b-tab title="Uzbek lotin" active >
 
                       <b-card-text>
                         <form @submit.prevent="put_uzl()">
@@ -126,6 +67,65 @@
                               <div>
                                 <label for="first_name">weekend</label>
                                 <input class="form-control" id="first_namee" v-model="weekend2" type="text"  required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mt-3">
+                            <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
+                          </div>
+                        </form>
+                      </b-card-text>
+                    </b-tab>
+                    <b-tab title="Rus" >
+                      <b-card-text>
+                        <form @submit.prevent="post_ru()">
+                          <div class="row">
+                            <div class="col-md-12  mb-3">
+                              <div>
+                                <label for="first_name">address</label>
+                                <input class="form-control" id="first_namee" v-model="address1" type="text"  required>
+                              </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                              <div>
+                                <label for="first_name">by_bus</label>
+                                <input class="form-control" id="first_namee" v-model="by_bus1" type="text"  required>
+                              </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                              <div>
+                                <label for="first_name">by_metro</label>
+                                <input class="form-control" id="first_namee" v-model="by_metro1" type="text"  required>
+                              </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                              <div>
+                                <label for="first_name">order</label>
+                                <input class="form-control" id="first_namee" v-model="order1" type="text"  required>
+                              </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                              <div>
+                                <label for="first_name">reference_point</label>
+                                <input class="form-control" id="first_namee" v-model="reference_point1" type="text"  required>
+                              </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                              <div>
+                                <label for="first_name">working_days</label>
+                                <input class="form-control" id="first_namee" v-model="working_days1" type="text"  required>
+                              </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                              <div>
+                                <label for="first_name">lunch</label>
+                                <input class="form-control" id="first_namee" v-model="lunch1" type="text"  required>
+                              </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                              <div>
+                                <label for="first_name">weekend</label>
+                                <input class="form-control" id="first_namee" v-model="weekend1" type="text"  required>
                               </div>
                             </div>
                           </div>
@@ -422,7 +422,7 @@ export default {
       form.append("second_phone_number", this.second_phone_number);
       form.append("third_phone_number", this.third_phone_number);
       form.append("fax", this.fax);
-      this.$http.post('/api/contact/',
+      this.$http.put('/api/contact/'+this.id+'/',
           form,
           {
             headers: {
@@ -462,14 +462,14 @@ export default {
     put_uzl(){
 
       const form = new FormData();
-      form.append("address", this.address1);
-      form.append("by_bus", this.by_bus1);
-      form.append("by_metro", this.by_metro1);
-      form.append("order", this.order1);
-      form.append("reference_point", this.reference_point1);
-      form.append("working_days", this.working_days1);
-      form.append("lunch", this.lunch1);
-      form.append("weekend", this.weekend1);
+      form.append("address", this.address2);
+      form.append("by_bus", this.by_bus2);
+      form.append("by_metro", this.by_metro2);
+      form.append("order", this.order2);
+      form.append("reference_point", this.reference_point2);
+      form.append("working_days", this.working_days2);
+      form.append("lunch", this.lunch2);
+      form.append("weekend", this.weekend2);
 
       form.append("email", this.email);
       form.append("longitude", this.longitude);
@@ -478,7 +478,7 @@ export default {
       form.append("second_phone_number", this.second_phone_number);
       form.append("third_phone_number", this.third_phone_number);
       form.append("fax", this.fax);
-      this.$http.put('/api/contact/'+this.id+'/',
+      this.$http.post('/api/contact/',
           form,
           {
             headers: {
@@ -487,13 +487,13 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
-
+            this.id=res.data.id
             this.title=''
             this.document_number='',
                 this.published_date='',
@@ -518,14 +518,14 @@ export default {
     put_uzk(){
 
       const form = new FormData();
-      form.append("address", this.address1);
-      form.append("by_bus", this.by_bus1);
-      form.append("by_metro", this.by_metro1);
-      form.append("order", this.order1);
-      form.append("reference_point", this.reference_point1);
-      form.append("working_days", this.working_days1);
-      form.append("lunch", this.lunch1);
-      form.append("weekend", this.weekend1);
+      form.append("address", this.address3);
+      form.append("by_bus", this.by_bus3);
+      form.append("by_metro", this.by_metro3);
+      form.append("order", this.order3);
+      form.append("reference_point", this.reference_point3);
+      form.append("working_days", this.working_days3);
+      form.append("lunch", this.lunch3);
+      form.append("weekend", this.weekend3);
 
       form.append("email", this.email);
       form.append("longitude", this.longitude);
@@ -574,12 +574,12 @@ export default {
     put_en(){
 
       const form = new FormData();
-      form.append("address", this.address1);
-      form.append("by_bus", this.by_bus1);
-      form.append("by_metro", this.by_metro1);
-      form.append("order", this.order1);
-      form.append("reference_point", this.reference_point1);
-      form.append("working_days", this.working_days1);
+      form.append("address", this.address4);
+      form.append("by_bus", this.by_bus4);
+      form.append("by_metro", this.by_metro4);
+      form.append("order", this.order4);
+      form.append("reference_point", this.reference_point4);
+      form.append("working_days", this.working_days4);
       form.append("lunch", this.lunch1);
       form.append("weekend", this.weekend1);
 

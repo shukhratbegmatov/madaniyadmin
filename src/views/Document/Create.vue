@@ -16,37 +16,7 @@
         <div class="row">
           <div class="col-md-9">
             <b-tabs card>
-              <b-tab title="Rus" active>
-                <b-card-text>
-                  <form @submit.prevent="post_ru()">
-                    <div class="row">
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">Title</label>
-                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">document_number</label>
-                          <input class="form-control" id="first_namee" v-model="document_number" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">published_date</label>
-                          <input class="form-control" id="first_namee" v-model="published_date" type="date"  required>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="mt-3">
-                      <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
-                    </div>
-                  </form>
-                </b-card-text>
-              </b-tab>
-              <b-tab title="Uzbek lotin" >
+              <b-tab title="Uzbek lotin" active >
 
                 <b-card-text>
                   <form @submit.prevent="put_uzl()">
@@ -57,16 +27,22 @@
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
                       </div>
+
+                    </div>
+                    <div class="mt-3">
+                      <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
+                    </div>
+                  </form>
+                </b-card-text>
+              </b-tab>
+              <b-tab title="Rus" >
+                <b-card-text>
+                  <form @submit.prevent="post_ru()">
+                    <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">document_number</label>
-                          <input class="form-control" id="first_namee" v-model="document_number" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">published_date</label>
-                          <input class="form-control" id="first_namee" v-model="published_date" type="date"  required>
+                          <label for="first_name">Title</label>
+                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
                       </div>
 
@@ -88,18 +64,6 @@
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
                       </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">document_number</label>
-                          <input class="form-control" id="first_namee" v-model="document_number"  type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">published_date</label>
-                          <input class="form-control" id="first_namee" v-model="published_date" type="date"  required>
-                        </div>
-                      </div>
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -118,24 +82,6 @@
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
                       </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">document_number</label>
-                          <input class="form-control" id="first_namee" v-model="document_number" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">published_date</label>
-                          <input class="form-control" id="first_namee" v-model="published_date" type="date"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <select class="custom-select" v-model="selectitem" id="inputGroupSelect01">
-
-                          <option :value="item.id" v-for="(item,index) in selected.results" :key="index">{{item.title}}</option>
-                        </select>
-                      </div>
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -148,6 +94,18 @@
 
           <div class="col-md-3 media">
 
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">document_number</label>
+                <input class="form-control" id="first_namee" v-model="document_number" type="text"  required>
+              </div>
+            </div>
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">published_date</label>
+                <input class="form-control" id="first_namee" v-model="published_date" type="date"  required>
+              </div>
+            </div>
             <div class="col-md-12  mb-3 px-3 mb-3">
               <div>
                 <label for="first_name">Link</label>
@@ -255,7 +213,7 @@ export default {
       form.append("document_number", this.document_number);
       form.append("document_category_id", this.selectitem);
       form.append("published_date", this.published_date);
-      this.$http.post('/api/docs/',
+      this.$http.put('/api/docs/'+this.id+'/',
           form,
           {
             headers: {
@@ -271,10 +229,6 @@ export default {
 
             })
             this.id=res.data.id
-            this.title=''
-            this.document_number='',
-            this.published_date='',
-             this.selectitem=''
           })
           .catch(error =>{
             if(error.response.data.file){
@@ -300,7 +254,7 @@ export default {
       form.append("document_number", this.document_number);
       form.append("document_category_id", this.selectitem);
       form.append("published_date", this.published_date);
-      this.$http.put('/api/docs/'+this.id+'/',
+      this.$http.post('/api/docs/',
           form,
           {
             headers: {
@@ -309,17 +263,15 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
-
+            this.id=res.data.id
             this.title=''
-            this.document_number='',
-                this.published_date='',
-                this.selectitem=''
+
           })
           .catch(error =>{
             if(error.response.data.file){
@@ -362,9 +314,7 @@ export default {
             })
 
             this.title=''
-            this.document_number='',
-                this.published_date='',
-                this.selectitem=''
+
           })
           .catch(error =>{
             if(error.response.data.file){
@@ -407,9 +357,7 @@ export default {
             })
 
             this.title=''
-            this.document_number='',
-                this.published_date='',
-                this.selectitem=''
+
           })
 
           .catch(error =>{

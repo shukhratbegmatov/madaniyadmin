@@ -15,78 +15,7 @@
         <div class="row">
           <div class="col-md-9">
             <b-tabs card>
-              <b-tab title="Rus" active>
-                <b-card-text>
-                  <form @submit.prevent="post_ru()">
-                    <div class="row">
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">Title</label>
-                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">Birthdate</label>
-                          <input class="form-control" id="first_namee" v-model="birthdate" type="date"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">reception</label>
-                          <input class="form-control" id="first_namee" v-model="reception" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">task</label>
-                          <input class="form-control" id="first_namee" v-model="task" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">previous_work</label>
-                          <input class="form-control" id="first_namee" v-model="previous_work" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">education</label>
-                          <input class="form-control" id="first_namee" v-model="education" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">department</label>
-                          <input class="form-control" id="first_namee" v-model="department" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">phone_number</label>
-                          <input class="form-control" id="first_namee" v-model="phone_number" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">email</label>
-                          <input class="form-control" id="first_namee" v-model="email" type="text"  required>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mt-3">
-                      <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
-                    </div>
-                  </form>
-                </b-card-text>
-              </b-tab>
-              <b-tab title="Uzbek lotin" >
+              <b-tab title="Uzbek lotin" active >
 
                 <b-card-text>
                   <form @submit.prevent="put_uzl()">
@@ -106,8 +35,57 @@
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">Birthdate</label>
-                          <input class="form-control" id="first_namee" v-model="birthdate" type="date"  required>
+                          <label for="first_name">reception</label>
+                          <input class="form-control" id="first_namee" v-model="reception" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">task</label>
+                          <input class="form-control" id="first_namee" v-model="task" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">previous_work</label>
+                          <input class="form-control" id="first_namee" v-model="previous_work" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">education</label>
+                          <input class="form-control" id="first_namee" v-model="education" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">department</label>
+                          <input class="form-control" id="first_namee" v-model="department" type="text"  required>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="mt-3">
+                      <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
+                    </div>
+                  </form>
+                </b-card-text>
+              </b-tab>
+              <b-tab title="Rus" >
+                <b-card-text>
+                  <form @submit.prevent="post_ru()">
+
+                    <div class="row">
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">Title</label>
+                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
                         </div>
                       </div>
                       <div class="col-md-12  mb-3">
@@ -140,12 +118,7 @@
                           <input class="form-control" id="first_namee" v-model="department" type="text"  required>
                         </div>
                       </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">phone_number</label>
-                          <input class="form-control" id="first_namee" v-model="phone_number" type="text"  required>
-                        </div>
-                      </div>
+
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -173,12 +146,6 @@
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">Birthdate</label>
-                          <input class="form-control" id="first_namee" v-model="birthdate" type="date"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
                           <label for="first_name">reception</label>
                           <input class="form-control" id="first_namee" v-model="reception" type="text"  required>
                         </div>
@@ -205,18 +172,6 @@
                         <div>
                           <label for="first_name">department</label>
                           <input class="form-control" id="first_namee" v-model="department" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">phone_number</label>
-                          <input class="form-control" id="first_namee" v-model="phone_number" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">email</label>
-                          <input class="form-control" id="first_namee" v-model="email" type="text"  required>
                         </div>
                       </div>
 
@@ -247,12 +202,6 @@
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">Birthdate</label>
-                          <input class="form-control" id="first_namee" v-model="birthdate" type="date"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
                           <label for="first_name">reception</label>
                           <input class="form-control" id="first_namee" v-model="reception" type="text"  required>
                         </div>
@@ -281,18 +230,7 @@
                           <input class="form-control" id="first_namee" v-model="department" type="text"  required>
                         </div>
                       </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">phone_number</label>
-                          <input class="form-control" id="first_namee" v-model="phone_number" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">email</label>
-                          <input class="form-control" id="first_namee" v-model="email" type="text"  required>
-                        </div>
-                      </div>
+
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -304,6 +242,24 @@
           </div>
 
           <div class="col-md-3 media">
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">email</label>
+                <input class="form-control" id="first_namee" v-model="email" type="text"  required>
+              </div>
+            </div><div class="col-md-12  mb-3">
+            <div>
+              <label for="first_name">phone_number</label>
+              <input class="form-control" id="first_namee" v-model="phone_number" type="text"  required>
+            </div>
+          </div>
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">Birthdate</label>
+                <input class="form-control" id="first_namee" v-model="birthdate" type="date"  required>
+              </div>
+            </div>
+
             <div class="col-md-12  mb-3">
               <label for="first_name">Managment category</label>
               <select class="form-control px-5" v-model="selectitem" id="inputGroupSelect01">
@@ -442,7 +398,7 @@ export default {
 
       form.append("email", this.email);
       form.append("management_category_id", this.selectitem);
-      this.$http.post('/api/leaders/',
+      this.$http.put('/api/leaders/'+this.id+'/',
           form,
           {
             headers: {
@@ -467,9 +423,7 @@ export default {
             this.previous_work=''
             this.education=''
             this.department=''
-            this.birthdate=''
-            this.phone_number=''
-            this.email=''
+
           })
           .catch(error =>{
             if(error.response.data.title){
@@ -551,7 +505,7 @@ export default {
 
       form.append("email", this.email);
       form.append("management_category_id", this.selectitem);
-      this.$http.put('/api/leaders/'+this.id+'/',
+      this.$http.post('/api/leaders/',
           form,
           {
             headers: {
@@ -560,13 +514,13 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
-
+            this.id=res.data.id
             this.title=''
             this.document_number=''
             this.published_date=''
@@ -576,9 +530,7 @@ export default {
             this.previous_work=''
             this.education=''
             this.department=''
-            this.birthdate=''
-            this.phone_number=''
-            this.email=''
+
           })
           .catch(error =>{
             if(error.response.data.title){
@@ -685,9 +637,7 @@ export default {
             this.previous_work=''
             this.education=''
             this.department=''
-            this.birthdate=''
-            this.phone_number=''
-            this.email=''
+
           })
           .catch(error =>{
             if(error.response.data.title){
@@ -795,9 +745,7 @@ export default {
             this.previous_work=''
             this.education=''
             this.department=''
-            this.birthdate=''
-            this.phone_number=''
-            this.email=''
+
           })
           .catch(error =>{
             if(error.response.data.title){

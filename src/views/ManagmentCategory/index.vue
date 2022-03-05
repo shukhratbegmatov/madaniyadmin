@@ -25,12 +25,7 @@
         <div class="card">
           <div class="d-flex">
             <div class="input-group mb-3">
-              <select v-model="page_size" @change="selected_page_size()" class="custom-select">
-                <option value="10" selected>10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-                <option value="40">100</option>
-              </select>
+
             </div>
             <form>
 
@@ -63,19 +58,6 @@
 
             </tbody>
           </table>
-          <div class="pagenations">
-            <paginate
-                :page-count="$store.state.heritage_main.total_pages"
-                :page-range="3"
-                :margin-pages="2"
-                :click-handler="clickCallback"
-                :prev-text="'Prev'"
-                :next-text="'Next'"
-                :container-class="'pagination'"
-                :page-class="'page-item'"
-            >
-            </paginate>
-          </div>
         </div>
       </div>
     </div>

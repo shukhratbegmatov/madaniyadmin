@@ -15,42 +15,7 @@
         <div class="row">
           <div class="col-md-9">
             <b-tabs card>
-              <b-tab title="Rus" active>
-                <b-card-text>
-                  <form @submit.prevent="post_ru()">
-                    <div class="row">
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">Title</label>
-                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">region</label>
-                          <input class="form-control" id="first_namee" v-model="region" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">description</label>
-
-                          <quill-editor
-                              :required="true"
-                              ref="myQuillEditorOrg"
-                              v-model="description1"
-                          />
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="mt-3">
-                      <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
-                    </div>
-                  </form>
-                </b-card-text>
-              </b-tab>
-              <b-tab title="Uzbek lotin" >
+              <b-tab title="Uzbek lotin"  active>
 
                 <b-card-text>
                   <form @submit.prevent="put_uzl()">
@@ -76,6 +41,41 @@
                               :required="true"
                               ref="myQuillEditorOrg"
                               v-model="description2"
+                          />
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="mt-3">
+                      <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
+                    </div>
+                  </form>
+                </b-card-text>
+              </b-tab>
+              <b-tab title="Rus" >
+                <b-card-text>
+                  <form @submit.prevent="post_ru()">
+                    <div class="row">
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">Title</label>
+                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">region</label>
+                          <input class="form-control" id="first_namee" v-model="region" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">description</label>
+
+                          <quill-editor
+                              :required="true"
+                              ref="myQuillEditorOrg"
+                              v-model="description1"
                           />
                         </div>
                       </div>
@@ -359,7 +359,7 @@ export default {
       form.append("latitude", this.latitude);
       form.append("main_image", this.myImages[0]);
 
-      this.$http.post('/api/object/',
+      this.$http.put('/api/object/'+this.id+'/',
           form,
           {
             headers: {
@@ -450,7 +450,7 @@ export default {
       form.append("longitude", this.longitude);
       form.append("latitude", this.latitude);
       form.append("main_image", this.myImages[0]);
-      this.$http.put('/api/object/'+this.id+'/',
+      this.$http.post('/api/object/',
           form,
           {
             headers: {
@@ -459,13 +459,13 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
-
+            this.id=res.data.id
             this.title=''
             this.document_number=''
             this.published_date=''
@@ -550,12 +550,13 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
+            this.id=res.data.id
             this.title=''
             this.document_number=''
             this.published_date=''

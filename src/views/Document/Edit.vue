@@ -26,18 +26,7 @@
                           <input class="form-control" id="first_namee" v-model="title1" type="text"  required>
                         </div>
                       </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">document_number</label>
-                          <input class="form-control" id="first_namee" v-model="document_number1" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">published_date</label>
-                          <input class="form-control" id="first_namee" v-model="published_date1" type="date"  required>
-                        </div>
-                      </div>
+
 
                     </div>
                     <div class="mt-3">
@@ -55,18 +44,6 @@
                         <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title2" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">document_number</label>
-                          <input class="form-control" id="first_namee" v-model="document_number2" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">published_date</label>
-                          <input class="form-control" id="first_namee" v-model="published_date2" type="date"  required>
                         </div>
                       </div>
 
@@ -88,18 +65,6 @@
                           <input class="form-control" id="first_namee" v-model="title3" type="text"  required>
                         </div>
                       </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">document_number</label>
-                          <input class="form-control" id="first_namee" v-model="document_number3" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">published_date</label>
-                          <input class="form-control" id="first_namee" v-model="published_date3" type="date"  required>
-                        </div>
-                      </div>
 
                     </div>
                     <div class="mt-3">
@@ -119,18 +84,6 @@
                           <input class="form-control" id="first_namee" v-model="title4" type="text"  required>
                         </div>
                       </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">document_number</label>
-                          <input class="form-control" id="first_namee" v-model="document_number4" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">published_date</label>
-                          <input class="form-control" id="first_namee" v-model="published_date4" type="date"  required>
-                        </div>
-                      </div>
 
                     </div>
                     <div class="mt-3">
@@ -143,7 +96,18 @@
           </div>
 
           <div class="col-md-3 media">
-
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">document_number</label>
+                <input class="form-control" id="first_namee" v-model="document_number1" type="text"  required>
+              </div>
+            </div>
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">published_date</label>
+                <input class="form-control" id="first_namee" v-model="published_date1" type="date"  required>
+              </div>
+            </div>
             <div class="col-md-12  mb-3 px-3 mb-3">
               <div>
                 <label for="first_name">Link</label>
@@ -247,6 +211,7 @@ export default {
           this.document_number1=res.data.document_number
           this.published_date1=res.data.published_date
           this.selectitem=res.data.document_category_id
+          this.link=res.data.link
         })
 
 
@@ -273,6 +238,7 @@ export default {
           this.document_number3=res.data.document_number
           this.published_date3=res.data.published_date
           this.selectitem=res.data.document_category_id
+          this.link=res.data.link
         })
 
     this.$http.get('/api/docs/'+this.$route.query.id,{
@@ -285,6 +251,7 @@ export default {
           this.document_number4=res.data.document_number
           this.published_date4=res.data.published_date
           this.selectitem=res.data.document_category_id
+          this.link=res.data.link
         })
     this.id=this.$route.query.id
   },
@@ -351,9 +318,9 @@ export default {
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title2);
-      form.append("document_number", this.document_number2);
+      form.append("document_number", this.document_number1);
       form.append("document_category_id", this.selectitem);
-      form.append("published_date", this.published_date2);
+      form.append("published_date", this.published_date1);
       this.$http.put('/api/docs/'+this.$route.query.id+'/',
           form,
           {
@@ -392,9 +359,9 @@ export default {
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title3);
-      form.append("document_number", this.document_number3);
+      form.append("document_number", this.document_number1);
       form.append("document_category_id", this.selectitem);
-      form.append("published_date", this.published_date3);
+      form.append("published_date", this.published_date1);
       this.$http.put('/api/docs/'+this.$route.query.id+'/',
           form,
           {
@@ -433,9 +400,9 @@ export default {
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title4);
-      form.append("document_number", this.document_number4);
+      form.append("document_number", this.document_number1);
       form.append("document_category_id", this.selectitem);
-      form.append("published_date", this.published_date4);
+      form.append("published_date", this.published_date1);
       this.$http.put('/api/docs/'+this.$route.query.id+'/',
           form,
           {

@@ -15,9 +15,11 @@
         <div class="row">
           <div class="col-md-9">
             <b-tabs card>
-              <b-tab title="Rus" active>
+              <b-tab title="Uzbek lotin" active>
+
                 <b-card-text>
-                  <form @submit.prevent="post_ru()">
+                  <form @submit.prevent="put_uzl()">
+
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
@@ -32,7 +34,7 @@
                           <quill-editor
                               :required="true"
                               ref="myQuillEditorOrg"
-                              v-model="description1"
+                              v-model="description2"
                           />
                         </div>
                       </div>
@@ -63,11 +65,9 @@
                   </form>
                 </b-card-text>
               </b-tab>
-              <b-tab title="Uzbek lotin" >
-
+              <b-tab title="Rus" >
                 <b-card-text>
-                  <form @submit.prevent="put_uzl()">
-
+                  <form @submit.prevent="post_ru()">
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
@@ -82,7 +82,7 @@
                           <quill-editor
                               :required="true"
                               ref="myQuillEditorOrg"
-                              v-model="description2"
+                              v-model="description1"
                           />
                         </div>
                       </div>
@@ -304,7 +304,7 @@ export default {
       form.append("work_condition", this.work_condition);
       form.append("published_date", this.published_date);
 
-      this.$http.post('/api/vacancy/',
+      this.$http.put('/api/vacancy/'+this.id+'/',
           form,
           {
             headers: {
@@ -339,7 +339,7 @@ export default {
       form.append("work_condition", this.work_condition);
       form.append("published_date", this.published_date);
 
-      this.$http.put('/api/vacancy/'+this.id+'/',
+      this.$http.post('/api/vacancy/',
           form,
           {
             headers: {
@@ -348,12 +348,13 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
+            this.id=res.data.id
           })
           .catch(()=> {
             this.$toasted.show("Errors", {

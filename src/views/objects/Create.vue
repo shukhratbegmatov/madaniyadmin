@@ -15,59 +15,7 @@
               <div class="row">
                 <div class="col-md-9">
                   <b-tabs card>
-                    <b-tab title="Rus" active>
-                      <b-card-text>
-                        <form @submit.prevent="post_ru()">
-                          <div class="row">
-                            <div class="col-md-12  mb-3">
-                              <div class="col-md-12  mb-3">
-                                <div>
-                                  <label for="first_name">Title</label>
-                                  <input class="form-control" id="first_namee" v-model="title1" type="text"  required>
-                                </div>
-                              </div>
-                              <div>
-                                <label for="first_name">description</label>
-
-                                <quill-editor
-                                    :required="true"
-                                    ref="myQuillEditorOrg"
-                                    v-model="description1"
-                                />
-                              </div>
-                              <div class="col-md-12  mb-3">
-                                <div>
-                                  <label for="first_name">address</label>
-                                  <input class="form-control" id="first_namee" v-model="address1" type="text"  required>
-                                </div>
-                              </div>
-                              <div class="col-md-12  mb-3">
-                                <div>
-                                  <label for="first_name">ownership_type</label>
-                                  <input class="form-control" id="first_namee" v-model="ownership_type1" type="text"  required>
-                                </div>
-                              </div>
-                              <div class="col-md-12  mb-3">
-                                <div>
-                                  <label for="first_name">negative_effect</label>
-                                  <input class="form-control" id="first_namee" v-model="negative_effect1" type="text"  required>
-                                </div>
-                              </div>
-                              <div class="col-md-12  mb-3">
-                                <div>
-                                  <label for="first_name">required_actions</label>
-                                  <input class="form-control" id="first_namee" v-model="required_actions1" type="text"  required>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="mt-3">
-                            <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
-                          </div>
-                        </form>
-                      </b-card-text>
-                    </b-tab>
-                    <b-tab title="Uzbek lotin" >
+                    <b-tab title="Uzbek lotin" active >
 
                       <b-card-text>
                         <form @submit.prevent="put_uzl()">
@@ -110,6 +58,58 @@
                                 <div>
                                   <label for="first_name">required_actions</label>
                                   <input class="form-control" id="first_namee" v-model="required_actions2" type="text"  required>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mt-3">
+                            <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
+                          </div>
+                        </form>
+                      </b-card-text>
+                    </b-tab>
+                    <b-tab title="Rus" >
+                      <b-card-text>
+                        <form @submit.prevent="post_ru()">
+                          <div class="row">
+                            <div class="col-md-12  mb-3">
+                              <div class="col-md-12  mb-3">
+                                <div>
+                                  <label for="first_name">Title</label>
+                                  <input class="form-control" id="first_namee" v-model="title1" type="text"  required>
+                                </div>
+                              </div>
+                              <div>
+                                <label for="first_name">description</label>
+
+                                <quill-editor
+                                    :required="true"
+                                    ref="myQuillEditorOrg"
+                                    v-model="description1"
+                                />
+                              </div>
+                              <div class="col-md-12  mb-3">
+                                <div>
+                                  <label for="first_name">address</label>
+                                  <input class="form-control" id="first_namee" v-model="address1" type="text"  required>
+                                </div>
+                              </div>
+                              <div class="col-md-12  mb-3">
+                                <div>
+                                  <label for="first_name">ownership_type</label>
+                                  <input class="form-control" id="first_namee" v-model="ownership_type1" type="text"  required>
+                                </div>
+                              </div>
+                              <div class="col-md-12  mb-3">
+                                <div>
+                                  <label for="first_name">negative_effect</label>
+                                  <input class="form-control" id="first_namee" v-model="negative_effect1" type="text"  required>
+                                </div>
+                              </div>
+                              <div class="col-md-12  mb-3">
+                                <div>
+                                  <label for="first_name">required_actions</label>
+                                  <input class="form-control" id="first_namee" v-model="required_actions1" type="text"  required>
                                 </div>
                               </div>
                             </div>
@@ -472,7 +472,7 @@ export default {
       form.append("heritage_category_id", this.selectitem);
       form.append("region", this.region);
       form.append("image", this.myImages[0]);
-      this.$http.post('/api/heritage/',
+      this.$http.put('/api/heritage/'+this.id+'/',
           form,
           {
             headers: {
@@ -560,7 +560,7 @@ export default {
       form.append("latitude", this.latitude);
       form.append("heritage_category_id", this.selectitem);
       form.append("image", this.myImages[0]);
-      this.$http.put('/api/heritage/'+this.id+'/',
+      this.$http.post('/api/heritage/',
           form,
           {
             headers: {
@@ -569,17 +569,17 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
-
-            this.title=''
-            this.document_number='',
-                this.published_date='',
-                this.about=''
+            this.id=res.data.id
+            this.title='',
+                this.about='',
+                this.document_number='',
+                this.published_date=''
           })
 
           .catch(error =>{

@@ -160,8 +160,8 @@ export default new Vuex.Store({
           })
     },
 
-    news({state}){
-      axios.get('/api/news?page=1000',{
+    news({state},cre){
+      axios.get('/api/news?page='+cre,{
         headers:{
           'Accept-Language':localStorage.getItem('lang')
         }

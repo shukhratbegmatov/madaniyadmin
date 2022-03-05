@@ -15,9 +15,10 @@
         <div class="row">
           <div class="col-md-9">
             <b-tabs card>
-              <b-tab title="Rus" active>
+              <b-tab title="Uzbek lotin"  active>
+
                 <b-card-text>
-                  <form @submit.prevent="post_ru()">
+                  <form @submit.prevent="put_uzl()">
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
@@ -38,10 +39,9 @@
                   </form>
                 </b-card-text>
               </b-tab>
-              <b-tab title="Uzbek lotin" >
-
+              <b-tab title="Rus" >
                 <b-card-text>
-                  <form @submit.prevent="put_uzl()">
+                  <form @submit.prevent="post_ru()">
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
@@ -138,7 +138,7 @@ export default {
   },
   methods:{
     post_ru(){
-      this.$http.post('/api/council-advice/',
+      this.$http.put('/api/council-advice/'+this.id+'/',
           {
             "resolution":this.resolution,
             "task":this.task
@@ -211,7 +211,7 @@ export default {
     },
     put_uzl(){
 
-      this.$http.put('/api/council-advice/'+this.id+'/',
+      this.$http.post('/api/council-advice/',
           {
             "resolution":this.resolution,
             "task":this.task
@@ -223,14 +223,14 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
+            this.id=res.data.id
             this.title=''
-
             this.resolution=''
             this.task=''
           })

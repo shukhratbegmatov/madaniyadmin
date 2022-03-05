@@ -1,5 +1,8 @@
 <template>
   <div>
+    <b-modal id="modal-1" title="BootstrapVue">
+      <p class="my-4">{{ bodys}}</p>
+    </b-modal>
     <Navbar></Navbar>
     <div class="container-fluid p-0">
       <div class="row">
@@ -51,12 +54,14 @@
                     <th>{{item.full_name}}</th>
                     <th>{{item.phone_number}}</th>
                     <th>{{item.email}}</th>
-                    <th>{{item.body}}</th>
+                    <td><div class="father_tabel" v-html="item.body"></div></td>
                     <th>{{new Date(item.created_on).toLocaleString()}}</th>
                     <td>
-                      <button class="btn" @click="deletes(item=item.id)">
-                        <b-icon icon="x-circle" scale="1" variant="danger"></b-icon>
+                      <button class="btn" @click="shows(item)" v-b-modal.modal-1>
+                        <b-icon icon="eye" scale="1" variant="danger"></b-icon>
                       </button>
+
+
                     </td>
                   </tr>
 
@@ -83,7 +88,8 @@ export default {
   data() {
     return {
       data: [],
-      page_size:10
+      page_size:10,
+      bodys:''
     }
   },
 
@@ -93,6 +99,9 @@ export default {
     })
   },
   methods: {
+    shows(item){
+      this.bodys=item.body
+    },
     selected_page_size(){
       this.$store.dispatch('api/appeal',{
         "page_size":this.page_size

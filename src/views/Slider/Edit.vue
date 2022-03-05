@@ -457,7 +457,7 @@ export default {
       form.append("url", this.url);
       form.append("logo", this.myImages1[0]);
       form.append("description", this.description3);
-      this.$http.put('/api/slider/'+this.id+'/',
+      this.$http.put('/api/slider/'+this.$route.query.id+'/',
           form,
           {
             headers: {
@@ -511,7 +511,7 @@ export default {
       form.append("url", this.url);
       form.append("logo", this.myImages1[0]);
       form.append("description", this.description4);
-      this.$http.put('/api/slider/'+this.id+'/',
+      this.$http.put('/api/slider/'+this.$route.query.id+'/',
           form,
           {
             headers: {

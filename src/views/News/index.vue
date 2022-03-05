@@ -28,12 +28,7 @@
           </div>
           <div class="d-flex">
             <div class="input-group mb-3">
-              <select v-model="page_size" @change="selected_page_size()" class="custom-select">
-                <option value="10" selected>10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-                <option value="40">100</option>
-              </select>
+
             </div>
             <form>
 
@@ -77,7 +72,7 @@
           </table>
           <div class="pagenations">
             <paginate
-                :page-count="$store.state.heritage_main.total_pages"
+                :page-count="$store.state.news.total_pages"
                 :page-range="3"
                 :margin-pages="2"
                 :click-handler="clickCallback"
@@ -89,6 +84,7 @@
             </paginate>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -113,11 +109,13 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch('news',{
-      "page_size":this.page_size
-    })
+    this.$store.dispatch('news',1)
   },
   methods: {
+    clickCallback (pageNum){
+      console.log(pageNum)
+      this.$store.dispatch('news',pageNum)
+    },
     selected_page_size(){
       this.$store.dispatch('news',{
         "page_size":this.page_size

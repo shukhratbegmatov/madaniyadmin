@@ -15,9 +15,10 @@
         <div class="row">
           <div class="col-md-9">
             <b-tabs card>
-              <b-tab title="Rus" active>
+              <b-tab title="Uzbek lotin"  active>
+
                 <b-card-text>
-                  <form @submit.prevent="post_ru()">
+                  <form @submit.prevent="put_uzl()">
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
@@ -38,10 +39,9 @@
                   </form>
                 </b-card-text>
               </b-tab>
-              <b-tab title="Uzbek lotin" >
-
+              <b-tab title="Rus" >
                 <b-card-text>
-                  <form @submit.prevent="put_uzl()">
+                  <form @submit.prevent="post_ru()">
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
@@ -196,7 +196,7 @@ export default {
 
       form.append("title", this.title);
       form.append("url", this.url);
-      this.$http.post('/api/open-data/',
+      this.$http.put('/api/open-data/'+this.id+'/',
           form,
           {
             headers: {
@@ -231,7 +231,7 @@ export default {
 
       form.append("title", this.title);
       form.append("url", this.url);
-      this.$http.put('/api/open-data/'+this.id+'/',
+      this.$http.post('/api/open-data/',
           form,
           {
             headers: {
@@ -240,22 +240,22 @@ export default {
             }
           })
 
-          .then(()=>{
+          .then(res=>{
             this.$toasted.show("Create data success",{
               duration: 1000,
               'type':'info'
 
             })
-
+            this.id=res.data.id
             this.title=''
             this.document_number='',
                 this.published_date='',
                 this.selectitem=''
           })
-          .catch(()=> {
-            this.$toasted.show("Errors", {
+          .catch(error=> {
+            this.$toasted.show(error.response.data.url, {
               duration: 1000,
-              'type': 'danger'
+              'type': 'error'
             })
           })
     },

@@ -16,9 +16,10 @@
 
           <div class="col-md-9">
             <b-tabs card>
-              <b-tab title="Rus" active>
+              <b-tab title="Uzbek lotin" active >
+
                 <b-card-text>
-                  <form @submit.prevent="post_ru()">
+                  <form @submit.prevent="put_uzl()">
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
@@ -33,10 +34,9 @@
                   </form>
                 </b-card-text>
               </b-tab>
-              <b-tab title="Uzbek lotin" >
-
+              <b-tab title="Rus" >
                 <b-card-text>
-                  <form @submit.prevent="put_uzl()">
+                  <form @submit.prevent="post_ru()">
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
@@ -178,7 +178,7 @@ export default {
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
       form.append("url", this.url);
-      this.$http.post('/api/files/',
+      this.$http.put('/api/files/'+this.id+'/',
           form,
           {
             headers: {
@@ -187,13 +187,13 @@ export default {
             }
           })
 
-          .then(res=> {
+          .then(()=> {
             this.$toasted.show("Create data success", {
               duration: 1000,
               'type': 'info'
 
             })
-            this.id=res.data.id
+
           })
           .catch(error =>{
             if(error.response.data.title){
@@ -217,7 +217,7 @@ export default {
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
       form.append("url", this.url);
-      this.$http.put('/api/files/'+this.id+'/',
+      this.$http.post('/api/files/',
           form,
           {
             headers: {
@@ -226,12 +226,13 @@ export default {
             }
           })
 
-          .then(()=> {
+          .then(res=> {
             this.$toasted.show("Create data success", {
               duration: 1000,
               'type': 'info'
 
             })
+            this.id=res.data.file_id
           })
           .catch(error =>{
             if(error.response.data.title){

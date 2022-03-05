@@ -25,12 +25,7 @@
         <div class="card">
           <div class="d-flex">
             <div class="input-group mb-3">
-              <select v-model="page_size" @change="selected_page_size()" class="custom-select">
-                <option value="10" selected>10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-                <option value="40">100</option>
-              </select>
+
             </div>
             <form>
 
