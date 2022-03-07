@@ -14,7 +14,7 @@ export default {
     if(localStorage.getItem('m_token')===null){
       this.$router.push('/login')
     }
-  },
+    },
   computed: {
     ...mapState(['isLoading', 'refCount'])
   },

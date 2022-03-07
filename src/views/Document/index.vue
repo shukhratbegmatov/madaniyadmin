@@ -45,7 +45,7 @@
             <tr>
               <th>Id</th>
               <th>Title</th>
-              <th>Create at</th>
+              <th>Docs number</th>
               <th>Update at</th>
               <th>Action</th>
             </tr>
@@ -55,7 +55,7 @@
 
               <td><div class="father_tabel">{{ item.id }}</div></td>
               <td><div class="father_tabel">{{ item.title }}</div></td>
-              <td><div class="father_tabel">{{ item.created_on }}</div></td>
+              <td><div class="father_tabel">{{ item.document_number  }}</div></td>
               <td><div class="father_tabel">{{ item.updated_on }}</div></td>
               <td>
                 <router-link :to="'/document/edit?id='+item.id" class="btn">
@@ -102,7 +102,7 @@ export default {
   data() {
     return {
       data: [],
-      page_size:10
+      page_size:100
     }
   },
 

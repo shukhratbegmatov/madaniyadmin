@@ -34,6 +34,7 @@ export default new Vuex.Store({
     contacts:[],
     isLoading:false,
     refCount: 0,
+    opendata:[]
   },
   mutations: {
     loading(state, isLoading) {
@@ -120,8 +121,8 @@ export default new Vuex.Store({
             state.structure=res.data
           })
     },
-    territorial({state}){
-      axios.get('/api/territorial',{
+    territorial({state},cre){
+      axios.get('/api/territorial?page='+cre,{
         headers:{
           'Accept-Language':localStorage.getItem('lang')
         }
@@ -277,6 +278,16 @@ export default new Vuex.Store({
       })
           .then(res=>{
             state.abouts=res.data
+          })
+    },
+    opendata({state}){
+      axios.get('/api/open-data',{
+        headers:{
+          'Accept-Language':localStorage.getItem('lang')
+        }
+      })
+          .then(res=>{
+            state.opendata=res.data
           })
     },
     heritage({state}){

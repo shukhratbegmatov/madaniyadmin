@@ -205,10 +205,13 @@ export default {
       });
     },
     post_ru(){
-
+      if(this.link==''){
+        this.link=null
+      }
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
+
       form.append("link", this.link);
       form.append("document_number", this.document_number);
       form.append("document_category_id", this.selectitem);
@@ -248,6 +251,9 @@ export default {
     },
     put_uzl(){
 
+      if(this.link==''){
+        this.link=null
+      }
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
@@ -291,6 +297,9 @@ export default {
     },
     put_uzk(){
 
+      if(this.link==''){
+        this.link=null
+      }
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
@@ -334,6 +343,9 @@ export default {
     },
     put_en(){
 
+      if(this.link==''){
+        this.link=null
+      }
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title);

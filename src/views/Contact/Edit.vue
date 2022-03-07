@@ -381,8 +381,11 @@ export default {
     }
   },
   mounted() {
-    this.$http.get('/api/contact/'+this.$route.query.id,{
-      'Accept-Language':'ru'
+    this.$http.get('/api/contact/'+this.$route.query.id, {
+
+      headers: {
+        'Accept-Language': 'ru'
+      }
     })
         .then(res=>{
               this.longitude=res.data.longitude,
@@ -404,8 +407,11 @@ export default {
               this.address1=res.data.address
         })
 
-    this.$http.get('/api/contact/'+this.$route.query.id,{
-      'Accept-Language':'uz-latn'
+    this.$http.get('/api/contact/'+this.$route.query.id,
+        {
+          headers:{
+            'Accept-Language':'uz-latn'
+          }
     })
         .then(res=>{
           this.longitude=res.data.longitude,
@@ -428,7 +434,10 @@ export default {
         })
 
     this.$http.get('/api/contact/'+this.$route.query.id,{
-      'Accept-Language':'uz-cyrl'
+
+      headers: {
+        'Accept-Language': 'uz-cyrl'
+      }
     })
         .then(res=>{
           this.longitude=res.data.longitude,
@@ -450,8 +459,11 @@ export default {
               this.address3=res.data.address
         })
 
-    this.$http.get('/api/contact/'+this.$route.query.id,{
-      'Accept-Language':'en'
+    this.$http.get('/api/contact/'+this.$route.query.id, {
+
+      headers: {
+        'Accept-Language': 'en'
+      }
     })
         .then(res=>{
           this.longitude=res.data.longitude,
@@ -549,14 +561,14 @@ export default {
     put_uzl(){
 
       const form = new FormData();
-      form.append("address", this.address1);
-      form.append("by_bus", this.by_bus1);
-      form.append("by_metro", this.by_metro1);
-      form.append("order", this.order1);
-      form.append("reference_point", this.reference_point1);
-      form.append("working_days", this.working_days1);
-      form.append("lunch", this.lunch1);
-      form.append("weekend", this.weekend1);
+      form.append("address", this.address2);
+      form.append("by_bus", this.by_bus2);
+      form.append("by_metro", this.by_metro2);
+      form.append("order", this.order2);
+      form.append("reference_point", this.reference_point2);
+      form.append("working_days", this.working_days2);
+      form.append("lunch", this.lunch2);
+      form.append("weekend", this.weekend2);
 
       form.append("email", this.email);
       form.append("longitude", this.longitude);
@@ -565,7 +577,7 @@ export default {
       form.append("second_phone_number", this.second_phone_number);
       form.append("third_phone_number", this.third_phone_number);
       form.append("fax", this.fax);
-      this.$http.put('/api/contact/'+this.id+'/',
+      this.$http.put('/api/contact/'+this.$route.query.id+'/',
           form,
           {
             headers: {
@@ -605,14 +617,14 @@ export default {
     put_uzk(){
 
       const form = new FormData();
-      form.append("address", this.address1);
-      form.append("by_bus", this.by_bus1);
-      form.append("by_metro", this.by_metro1);
-      form.append("order", this.order1);
-      form.append("reference_point", this.reference_point1);
-      form.append("working_days", this.working_days1);
-      form.append("lunch", this.lunch1);
-      form.append("weekend", this.weekend1);
+      form.append("address", this.address3);
+      form.append("by_bus", this.by_bus3);
+      form.append("by_metro", this.by_metro3);
+      form.append("order", this.order3);
+      form.append("reference_point", this.reference_point3);
+      form.append("working_days", this.working_days3);
+      form.append("lunch", this.lunch3);
+      form.append("weekend", this.weekend3);
 
       form.append("email", this.email);
       form.append("longitude", this.longitude);
@@ -621,7 +633,7 @@ export default {
       form.append("second_phone_number", this.second_phone_number);
       form.append("third_phone_number", this.third_phone_number);
       form.append("fax", this.fax);
-      this.$http.put('/api/contact/'+this.id+'/',
+      this.$http.put('/api/contact/'+this.$route.query.id+'/',
           form,
           {
             headers: {
@@ -661,14 +673,14 @@ export default {
     put_en(){
 
       const form = new FormData();
-      form.append("address", this.address1);
-      form.append("by_bus", this.by_bus1);
-      form.append("by_metro", this.by_metro1);
-      form.append("order", this.order1);
-      form.append("reference_point", this.reference_point1);
-      form.append("working_days", this.working_days1);
-      form.append("lunch", this.lunch1);
-      form.append("weekend", this.weekend1);
+      form.append("address", this.address4);
+      form.append("by_bus", this.by_bus4);
+      form.append("by_metro", this.by_metro4);
+      form.append("order", this.order4);
+      form.append("reference_point", this.reference_point4);
+      form.append("working_days", this.working_days4);
+      form.append("lunch", this.lunch4);
+      form.append("weekend", this.weekend4);
 
       form.append("email", this.email);
       form.append("longitude", this.longitude);
@@ -677,7 +689,7 @@ export default {
       form.append("second_phone_number", this.second_phone_number);
       form.append("third_phone_number", this.third_phone_number);
       form.append("fax", this.fax);
-      this.$http.put('/api/contact/'+this.id+'/',
+      this.$http.put('/api/contact/'+this.$route.query.id+'/',
           form,
           {
             headers: {

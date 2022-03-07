@@ -274,6 +274,9 @@ export default {
     },
     post_ru(){
 
+      if(this.link==''){
+        this.link=null
+      }
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title1);
@@ -315,6 +318,9 @@ export default {
     },
     put_uzl(){
 
+      if(this.link==''){
+        this.link=null
+      }
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title2);
@@ -356,6 +362,9 @@ export default {
     },
     put_uzk(){
 
+      if(this.link==''){
+        this.link=null
+      }
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title3);
@@ -397,6 +406,9 @@ export default {
     },
     put_en(){
 
+      if(this.link==''){
+        this.link=null
+      }
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title4);

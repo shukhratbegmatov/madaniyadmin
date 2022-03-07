@@ -370,7 +370,7 @@ export default {
       form.append("email", this.email);
       form.append("region", this.selected);
 
-      this.$http.put('/api/territorial/'+this.id+'/',
+      this.$http.put('/api/territorial/'+this.$route.query.id+'/',
           form,
           {
             headers: {
@@ -457,7 +457,7 @@ export default {
       form.append("email", this.email);
       form.append("region", this.selected);
 
-      this.$http.put('/api/territorial/'+this.id+'/',
+      this.$http.put('/api/territorial/'+this.$route.query.id+'/',
           form,
           {
             headers: {
@@ -543,7 +543,7 @@ export default {
       form.append("email", this.email);
       form.append("region", this.selected);
 
-      this.$http.put('/api/territorial/'+this.id+'/',
+      this.$http.put('/api/territorial/'+this.$route.query.id+'/',
 
           form,
           {
@@ -629,7 +629,7 @@ export default {
       form.append("email", this.email);
       form.append("region", this.selected);
 
-      this.$http.put('/api/territorial/'+this.id+'/',
+      this.$http.put('/api/territorial/'+this.$route.query.id+'/',
 
           form,
           {

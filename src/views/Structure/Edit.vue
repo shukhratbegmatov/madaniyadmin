@@ -74,7 +74,7 @@ export default {
     post_ru(){
       const form = new FormData();
       form.append("image", this.myImages[0]);
-      this.$http.put('/api/structure/'+this.$route.query.id,
+      this.$http.put('/api/structure/'+this.$route.query.id+'/',
           form,
           {
             headers: {

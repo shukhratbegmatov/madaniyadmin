@@ -49,9 +49,9 @@
               <th>Action</th>
             </tr>
             </thead>
-            <tbody v-if=" $store.state.abouts">
+            <tbody v-if=" $store.state.opendata.results">
 
-            <tr v-for="(item,index) in  $store.state.abouts" :key="index">
+            <tr v-for="(item,index) in  $store.state.opendata.results" :key="index">
 
               <td><div class="father_tabel">{{ item.id }}</div></td>
               <td><div class="father_tabel" v-html="item.about"></div></td>
@@ -69,19 +69,6 @@
 
             </tbody>
           </table>
-          <div class="pagenations">
-            <paginate
-                :page-count="$store.state.heritage_main.total_pages"
-                :page-range="3"
-                :margin-pages="2"
-                :click-handler="clickCallback"
-                :prev-text="'Prev'"
-                :next-text="'Next'"
-                :container-class="'pagination'"
-                :page-class="'page-item'"
-            >
-            </paginate>
-          </div>
         </div>
       </div>
     </div>
@@ -107,7 +94,7 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch('about',{
+    this.$store.dispatch('opendata',{
       "page_size":this.page_size
     })
   },
@@ -121,7 +108,7 @@ export default {
 
       let isBoss = confirm("You really want to delete?");
       if (isBoss == true) {
-        this.$http.delete('/api/about/' + item + '/',
+        this.$http.delete('/api/open-data/' + item + '/',
             {
               headers: {
                 'Authorization': 'Token ' + localStorage.getItem('m_token'),

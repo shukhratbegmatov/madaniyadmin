@@ -55,6 +55,7 @@
 
               <td><div class="father_tabel">{{ item.id }}</div></td>
               <td><div class="father_tabel">{{ item.title }}</div></td>
+              <td><div class="father_tabel">{{ item.address }}</div></td>
               <td><div class="father_tabel">{{ item.created_on }}</div></td>
               <td><div class="father_tabel">{{ item.updated_on }}</div></td>
               <td>
@@ -69,7 +70,19 @@
 
             </tbody>
           </table>
-
+          <div class="pagenations">
+            <paginate
+                :page-count="$store.state.territorial.total_pages"
+                :page-range="3"
+                :margin-pages="2"
+                :click-handler="clickCallback"
+                :prev-text="'Prev'"
+                :next-text="'Next'"
+                :container-class="'pagination'"
+                :page-class="'page-item'"
+            >
+            </paginate>
+          </div>
         </div>
       </div>
     </div>
@@ -89,16 +102,19 @@ export default {
   data() {
     return {
       data: [],
-      page_size:10
+      page_size:1,
+      search_name:''
     }
   },
 
   mounted() {
-    this.$store.dispatch('territorial',{
-      "page_size":this.page_size
-    })
+    this.$store.dispatch('territorial',this.page_size)
   },
   methods: {
+    clickCallback (pageNum){
+      console.log(pageNum)
+      this.$store.dispatch('territorial',pageNum)
+    },
     selected_page_size(){
       this.$store.dispatch('territorial',{
         "page_size":this.page_size
