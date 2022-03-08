@@ -218,8 +218,8 @@ export default new Vuex.Store({
           })
     },
 
-    vacancy({state}){
-      axios.get('/api/vacancy',{
+    vacancy({state},cre){
+      axios.get('/api/vacancy?page='+cre.page_size,{
         headers:{
           'Accept-Language':'uz-latn'
         }
