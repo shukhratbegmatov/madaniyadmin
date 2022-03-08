@@ -52,7 +52,7 @@ export default new Vuex.Store({
     manGetfunc({state}){
       axios.get('/api/management/',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -62,7 +62,7 @@ export default new Vuex.Store({
     manGetfuncId({state}){
       axios.get('/api/management/'+router.currentRoute.params.id,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -73,7 +73,7 @@ export default new Vuex.Store({
     manMainGetfunc({state}){
       axios.get('/api/leaders',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -84,7 +84,7 @@ export default new Vuex.Store({
     manMainGetfuncid({state}){
       axios.get('/api/leaders/'+router.currentRoute.params.id,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -94,7 +94,7 @@ export default new Vuex.Store({
     councilAdvice({state}){
       axios.get('/api/council-advice/',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -104,7 +104,7 @@ export default new Vuex.Store({
     appeal({state}){
       axios.get('/api/appeal/',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -114,7 +114,7 @@ export default new Vuex.Store({
     sutructure({state}){
       axios.get('/api/structure',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -124,7 +124,7 @@ export default new Vuex.Store({
     territorial({state},cre){
       axios.get('/api/territorial?page='+cre,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -134,7 +134,7 @@ export default new Vuex.Store({
     docs_category({state},creditailes){
       axios.get('/api/docs-category?page_size='+creditailes.page_size,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -145,7 +145,7 @@ export default new Vuex.Store({
     document({state},creditailes){
       axios.get('/api/docs?page_size'+creditailes.page_size,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -155,7 +155,7 @@ export default new Vuex.Store({
     contact_func({state},creditailes){
       axios.get('/api/contact?page_size'+creditailes.page_size,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -166,7 +166,7 @@ export default new Vuex.Store({
     museum({state}){
       axios.get('/api/museum',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -177,7 +177,7 @@ export default new Vuex.Store({
     news({state},cre){
       axios.get('/api/news?page='+cre,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -188,7 +188,7 @@ export default new Vuex.Store({
     organization({state}){
       axios.get('/api/organization',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -199,7 +199,7 @@ export default new Vuex.Store({
     press({state}){
       axios.get('/api/press-secretary',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -210,7 +210,7 @@ export default new Vuex.Store({
     services({state}){
       axios.get('/api/service',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -221,7 +221,7 @@ export default new Vuex.Store({
     vacancy({state}){
       axios.get('/api/vacancy',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -232,7 +232,7 @@ export default new Vuex.Store({
     slider({state}){
       axios.get('/api/slider',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -243,7 +243,7 @@ export default new Vuex.Store({
     files({state}){
       axios.get('/api/files',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -253,7 +253,7 @@ export default new Vuex.Store({
     stats({state}){
       axios.get('/api/stats',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -263,7 +263,7 @@ export default new Vuex.Store({
     object({state}){
       axios.get('/api/object',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -273,7 +273,7 @@ export default new Vuex.Store({
     about({state}){
       axios.get('/api/about',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -283,7 +283,7 @@ export default new Vuex.Store({
     opendata({state}){
       axios.get('/api/open-data',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -293,7 +293,7 @@ export default new Vuex.Store({
     heritage({state}){
       axios.get('/api/heritage-category',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -303,7 +303,7 @@ export default new Vuex.Store({
     heritage_main({state},cre){
       axios.get('/api/heritage?page='+cre.page_size,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -313,7 +313,7 @@ export default new Vuex.Store({
     heritage_search({state},cre){
       axios.get('/api/heritage?name='+cre,{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{
@@ -325,7 +325,7 @@ export default new Vuex.Store({
     subs({state}){
       axios.get('/api/subs',{
         headers:{
-          'Accept-Language':localStorage.getItem('lang')
+          'Accept-Language':'uz-latn'
         }
       })
           .then(res=>{

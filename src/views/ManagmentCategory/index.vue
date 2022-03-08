@@ -54,6 +54,14 @@
               <td><div class="father_tabel">{{ item.title }}</div></td>
               <td><div class="father_tabel">{{ item.created_on }}</div></td>
               <td><div class="father_tabel">{{ item.updated_on }}</div></td>
+              <td>
+<!--                <router-link :to="'/managment/edit?id='+item.id" class="btn">-->
+<!--                  <b-icon icon="pencil" scale="1" variant="white"></b-icon>-->
+<!--                </router-link>-->
+                <button class="btn" @click="deletes(item=item.id)">
+                  <b-icon icon="x-circle" scale="1" variant="danger"></b-icon>
+                </button>
+              </td>
             </tr>
 
             </tbody>

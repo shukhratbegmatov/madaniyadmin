@@ -51,11 +51,21 @@
         </button>
         <div class="drop_menus" :class="{'active':islang}">
           <div class="drop_link">
+            <div>
+              <button @click="changelang(item=='uz')" class="drop_text">
+                Uz
+              </button>
+            </div>
            <div>
-             <button class="drop_text">
+             <button  @click="changelang(item=='uz')" class="drop_text">
                Rus
              </button>
            </div>
+            <div>
+              <button  @click="changelang(item=='en')" class="drop_text">
+                En
+              </button>
+            </div>
           </div>
         </div>
       </div>
