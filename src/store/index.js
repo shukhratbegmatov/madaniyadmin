@@ -70,8 +70,8 @@ export default new Vuex.Store({
           })
     },
 
-    manMainGetfunc({state}){
-      axios.get('/api/leaders',{
+    manMainGetfunc({state},cre){
+      axios.get('/api/leaders?page='+cre.page_size,{
         headers:{
           'Accept-Language':'uz-latn'
         }

@@ -43,6 +43,12 @@
         </button>
       </div>
     <div class="autors">
+      <div class="files">
+          <a href="../assets/Техническая инструкция.pdf"  class="file_download" download>
+            Техническая инструкция
+            <b-icon icon="download"></b-icon>
+          </a>
+      </div>
       <div class="drops_menus">
         <button @click="islang=!islang">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

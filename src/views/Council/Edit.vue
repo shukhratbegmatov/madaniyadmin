@@ -400,7 +400,7 @@ export default {
   margin: 20px;
 }
 .media{
-  margin-top: 280px;
+  margin-top: 80px;
 }
 .file_label{
   width: 200px;

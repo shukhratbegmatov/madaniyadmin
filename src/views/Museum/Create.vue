@@ -196,6 +196,18 @@
             </div>
             <div class="col-md-12  mb-3">
               <div>
+                <label for="first_name">latitude</label>
+                <input class="form-control" id="first_namee" v-model="geo.latitude" type="text"  required>
+              </div>
+            </div>
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">longitude</label>
+                <input class="form-control" id="first_namee" v-model="geo.longitude" type="text"  required>
+              </div>
+            </div>
+            <div class="col-md-12  mb-3">
+              <div>
                 <label for="first_name">phone_number</label>
                 <input class="form-control" id="first_namee" v-model="phone_number" type="text"  required>
               </div>
@@ -336,7 +348,13 @@ export default {
       description4:'',
       files_name1:[],
       myImages1:[],
-      imageUrl1:[]
+      imageUrl1:[],
+
+      geo:{
+        latitude:'',
+        longitude:''
+      },
+      website:''
 
     }
   },
@@ -384,6 +402,8 @@ export default {
       form.append("reception", this.reception1);
       form.append("description", this.description1);
       form.append("phone_number",this.phone_number);
+      form.append("geolocation",this.geo);
+      form.append("website",this.website);
       this.$http.put('/api/museum/'+this.id+'/',
           form,
           {
@@ -462,6 +482,8 @@ export default {
       form.append("reception", this.reception2);
       form.append("description", this.description2);
       form.append("phone_number",this.phone_number);
+      form.append("geolocation",this.geo);
+      form.append("website",this.website);
       this.$http.post('/api/museum/',
           form,
           {
@@ -541,6 +563,8 @@ export default {
       form.append("reception", this.reception3);
       form.append("description", this.description3);
       form.append("phone_number",this.phone_number);
+      form.append("geolocation",this.geo);
+      form.append("website",this.website);
       this.$http.put('/api/museum/'+this.id+'/',
 
           form,
@@ -620,6 +644,8 @@ export default {
       form.append("reception", this.reception4);
       form.append("description", this.description4);
       form.append("phone_number",this.phone_number);
+      form.append("geolocation",this.geo);
+      form.append("website",this.website);
       this.$http.put('/api/museum/'+this.id+'/',
 
           form,
@@ -712,7 +738,7 @@ export default {
   margin: 20px;
 }
 .media{
-  margin-top: 280px;
+  margin-top: 80px;
 }
 .file_label{
   width: 200px;
