@@ -192,6 +192,25 @@
 
             <div class="col-md-12  mb-3">
               <div>
+                <label for="first_name">Top museum</label>
+              </div>
+              <div class="mb-2">
+                <a class="isUnesco p-2" :class="{'active':is_status==1}"  @click="is_status=1">True</a>
+                <a class="isUnesco p-2" :class="{'active':is_status==0}" @click="is_status=0">  False</a>
+              </div>
+              <div>
+                <div class="col-md-12  mb-3">
+                  <div>
+                    <label for="first_name">latitude</label>
+                    <input class="form-control" id="first_namee" v-model="latitude" type="text"  required>
+                  </div>
+                </div>
+                <div class="col-md-12  mb-3">
+                  <div>
+                    <label for="first_name">longitude</label>
+                    <input class="form-control" id="first_namee" v-model="longitude" type="text"  required>
+                  </div>
+                </div>
                 <label for="first_name">Web site</label>
                 <input class="form-control" id="first_namee" v-model="website" type="text"  required>
               </div>
@@ -294,6 +313,7 @@ export default {
   },
   data(){
     return{
+      is_status:0,
       id:'',
       selected:[],
       selectitem:'',
@@ -308,6 +328,8 @@ export default {
       myImages:[],
       imageUrl:[],
       files_name:[],
+      latitude:'',
+      longitude:'',
 
 
       title1:'',
@@ -355,6 +377,9 @@ export default {
           this.description1=res.data.description
           this.website=res.data.website
           this.phone_number=res.data.phone_number
+          this.latitude=res.data.latitude
+          this.longitude=res.data.longitude
+          this.is_status=res.data.status
         })
 
 
@@ -447,7 +472,11 @@ export default {
       form.append("title", this.title1);
       form.append("reception", this.reception1);
       form.append("description", this.description1);
-      form.append("phone_number",this.phone_number1);
+      form.append("phone_number",this.phone_number);
+      form.append("longitude",this.longitude);
+      form.append("latitude",this.latitude);
+      form.append("status",this.is_status);
+      form.append("website",this.website);
       this.$http.put('/api/museum/'+this.$route.query.id+'/',
           form,
           {
@@ -529,6 +558,10 @@ export default {
       form.append("reception", this.reception2);
       form.append("description", this.description2);
       form.append("phone_number",this.phone_number);
+      form.append("longitude",this.longitude);
+      form.append("latitude",this.latitude);
+      form.append("status",this.is_status);
+      form.append("website",this.website);
       this.$http.put('/api/museum/'+this.$route.query.id+'/',
           form,
           {
@@ -544,7 +577,6 @@ export default {
               'type':'info'
 
             })
-
             this.title=''
             this.document_number=''
             this.published_date=''
@@ -610,6 +642,10 @@ export default {
       form.append("reception", this.reception3);
       form.append("description", this.description3);
       form.append("phone_number",this.phone_number);
+      form.append("longitude",this.longitude);
+      form.append("latitude",this.latitude);
+      form.append("status",this.is_status);
+      form.append("website",this.website);
       this.$http.put('/api/museum/'+this.$route.query.id+'/',
 
           form,
@@ -691,6 +727,10 @@ export default {
       form.append("reception", this.reception4);
       form.append("description", this.description4);
       form.append("phone_number",this.phone_number);
+      form.append("longitude",this.longitude);
+      form.append("latitude",this.latitude);
+      form.append("status",this.is_status);
+      form.append("website",this.website);
       this.$http.put('/api/museum/'+this.$route.query.id+'/',
 
           form,

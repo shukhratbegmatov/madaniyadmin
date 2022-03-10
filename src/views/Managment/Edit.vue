@@ -276,8 +276,8 @@
                 <option value="10">Fargona</option>
                 <option value="11" >Sirdaryo</option>
                 <option value="12">Toshkent viloyati</option>
-                <option value="13">Xorazm</option>
-                <option value="14">Qoraqalpog'iston</option>
+                <option value="14">Xorazm</option>
+                <option value="13">Qoraqalpog'iston</option>
               </select>
             </div>
             <div class="col-md-12  mb-3">

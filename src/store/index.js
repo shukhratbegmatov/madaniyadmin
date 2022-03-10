@@ -134,7 +134,7 @@ export default new Vuex.Store({
     docs_category({state},creditailes){
       axios.get('/api/docs-category?page_size='+creditailes.page_size,{
         headers:{
-          'Accept-Language':'uz-latn'
+          'Accept-Language':'ru'
         }
       })
           .then(res=>{

@@ -212,6 +212,10 @@ export default {
           })
     },
     put_uzl(){
+      console.log(this.myImages[0])
+      if(this.myImages[0]===undefined){
+        this.myImages[0]=""
+      }
       const form = new FormData();
 
       form.append("file", this.myImages[0]);
