@@ -242,7 +242,7 @@
                   </svg>
                 </button></div>
               <div v-for="item in imageUrl" :key="item">
-                <img :src="item" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+                <img :src="item" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
               </div>
             </div>
             <input type="file" class="d-none" id="cr_image"
@@ -279,7 +279,7 @@
                   </svg>
                 </button></div>
               <div >
-                <img :src="imageUrl1[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+                <img :src="imageUrl1[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
               </div>
             </div>
             <input type="file" class="d-none" id="cr_imagee"

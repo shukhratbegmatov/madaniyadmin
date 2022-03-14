@@ -307,7 +307,7 @@
                     </defs>
                   </svg>
                 </button></div>
-              <img :src="imageUrl[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+              <img :src="imageUrl[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
             </div>
             <input type="file" class="d-none" id="cr_image"
                    multiple
@@ -367,11 +367,12 @@ export default {
   },
   methods:{
     trySubmitFile(e) {
+
+      console.log(e.target.files[0])
       for (let i = 0; i < e.target.files.length; i++) {
         this.files_name.push(e.target.files[i])
       }
       var files = Array.from(e.target.files);
-      console.log(typeof (files))
       files.forEach((file) => {
         this.myImages.push(file);
         var reader = new FileReader();
@@ -380,6 +381,7 @@ export default {
           vm.imageUrl.push(e.target.result);
         };
         reader.readAsDataURL(file);
+        console.log(reader.readAsDataURL(file))
       });
     },
     post_ru(){

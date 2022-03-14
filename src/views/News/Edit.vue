@@ -159,7 +159,7 @@
                     </defs>
                   </svg>
                 </button></div>
-              <img :src="imageUrl[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+              <img :src="imageUrl[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
             </div>
             <input type="file" class="d-none" id="cr_image"
                    multiple
@@ -235,6 +235,8 @@ export default {
 
           this.title1=res.data.title
           this.content1=res.data.content
+
+          this.imageUrl.push(res.data.image)
         })
 
     this.$http.get('/api/news/'+this.$route.query.id,{
@@ -289,9 +291,17 @@ export default {
     },
     post_ru(){
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("content", this.content1);
-      form.append("title", this.title1);
+      if(this.myImages.length==0){
+        form.append("content", this.content1);
+        form.append("title", this.title1);
+      }
+      else {
+        form.append("content", this.content1);
+        form.append("title", this.title1);
+        form.append("image", this.myImages[0]);
+
+      }
+
       this.$http.put('/api/news/'+this.$route.query.id+'/',
           form,
           {
@@ -347,9 +357,17 @@ export default {
     put_uzl(){
 
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("content", this.content2);
-      form.append("title", this.title2);
+      if(this.myImages.length==0){
+        form.append("content", this.content1);
+        form.append("title", this.title1);
+      }
+      else {
+        form.append("content", this.content1);
+        form.append("title", this.title1);
+        form.append("image", this.myImages[0]);
+
+      }
+
       this.$http.put('/api/news/'+this.$route.query.id+'/',
           form,
           {
@@ -405,9 +423,17 @@ export default {
     put_uzk(){
 
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("content", this.content3);
-      form.append("title", this.title3);
+      if(this.myImages.length==0){
+        form.append("content", this.content1);
+        form.append("title", this.title1);
+      }
+      else {
+        form.append("content", this.content1);
+        form.append("title", this.title1);
+        form.append("image", this.myImages[0]);
+
+      }
+
       this.$http.put('/api/news/'+this.$route.query.id+'/',
 
           form,
@@ -447,9 +473,17 @@ export default {
     put_en(){
 
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("content", this.content4);
-      form.append("title", this.title4);
+      if(this.myImages.length==0){
+        form.append("content", this.content1);
+        form.append("title", this.title1);
+      }
+      else {
+        form.append("content", this.content1);
+        form.append("title", this.title1);
+        form.append("image", this.myImages[0]);
+
+      }
+
       this.$http.put('/api/news/'+this.$route.query.id+'/',
 
           form,

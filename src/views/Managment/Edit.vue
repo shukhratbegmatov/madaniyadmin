@@ -7,7 +7,7 @@
         <div class="col">
           <div class="buttons_create">
             <div>
-              <h3 class="font-weight-bold mb-3">О нас</h3>
+              <h3 class="font-weight-bold mb-3">Управление</h3>
             </div>
           </div>
     <div class=" main_card">
@@ -309,7 +309,7 @@
                     </defs>
                   </svg>
                 </button></div>
-              <img :src="imageUrl[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+              <img :src="imageUrl[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
             </div>
             <input type="file" class="d-none" id="cr_image"
                    multiple
@@ -425,6 +425,7 @@ export default {
           this.previous_work2=res.data.previous_work
           this.education2=res.data.education
           this.department2=res.data.department
+          this.imageUrl.push(res.data.image)
         })
 
     this.$http.get('/api/leaders/'+this.$route.query.id,{
@@ -460,6 +461,7 @@ export default {
   },
   methods:{
     trySubmitFile(e) {
+      console.log(e.target.files[0])
       for (let i = 0; i < e.target.files.length; i++) {
         this.files_name.push(e.target.files[i])
       }
@@ -477,20 +479,37 @@ export default {
     },
     post_ru(){
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("leader", this.leader1);
-      form.append("title", this.title1);
-      form.append("reception", this.reception1);
-      form.append("task", this.task1);
-      form.append("previous_work",this.previous_work1);
-      form.append("education", this.education1);
-      form.append("department", this.department1);
-      form.append("birthdate", this.birthdate);
-      form.append("phone_number",this.phone_number);
-      form.append("status",this.status);
+      if (this.myImages.length==0){
+        form.append("leader", this.leader2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("task", this.task2);
+        form.append("previous_work",this.previous_work2);
+        form.append("education", this.education2);
+        form.append("department", this.department2);
+        form.append("birthdate", this.birthdate);
+        form.append("phone_number",this.phone_number);
+        form.append("status",this.status);
 
-      form.append("email", this.email);
-      form.append("management_category_id", this.selectitem);
+        form.append("email", this.email);
+        form.append("management_category_id", this.selectitem);
+      }
+      else {
+        form.append("image", this.myImages[0]);
+        form.append("leader", this.leader2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("task", this.task2);
+        form.append("previous_work",this.previous_work2);
+        form.append("education", this.education2);
+        form.append("department", this.department2);
+        form.append("birthdate", this.birthdate);
+        form.append("phone_number",this.phone_number);
+        form.append("status",this.status);
+
+        form.append("email", this.email);
+        form.append("management_category_id", this.selectitem);
+      }
       this.$http.put('/api/leaders/'+this.$route.query.id+'/',
           form,
           {
@@ -507,18 +526,7 @@ export default {
 
             })
             this.id=res.data.id
-            this.title=''
-            this.document_number=''
-            this.published_date=''
-            this.leader=''
-            this.reception=''
-            this.task=''
-            this.previous_work=''
-            this.education=''
-            this.department=''
-            this.birthdate=''
-            this.phone_number=''
-            this.email=''
+
           })
 
           .catch(error =>{
@@ -585,22 +593,39 @@ export default {
           })
     },
     put_uzl(){
-
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("leader", this.leader2);
-      form.append("title", this.title2);
-      form.append("reception", this.reception2);
-      form.append("task", this.task2);
-      form.append("previous_work",this.previous_work2);
-      form.append("education", this.education2);
-      form.append("department", this.department2);
-      form.append("birthdate", this.birthdate);
-      form.append("phone_number",this.phone_number);
-      form.append("status",this.status);
+      if (this.myImages.length==0){
+        form.append("leader", this.leader2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("task", this.task2);
+        form.append("previous_work",this.previous_work2);
+        form.append("education", this.education2);
+        form.append("department", this.department2);
+        form.append("birthdate", this.birthdate);
+        form.append("phone_number",this.phone_number);
+        form.append("status",this.status);
 
-      form.append("email", this.email);
-      form.append("management_category_id", this.selectitem);
+        form.append("email", this.email);
+        form.append("management_category_id", this.selectitem);
+      }
+      else {
+        form.append("image", this.myImages[0]);
+        form.append("leader", this.leader2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("task", this.task2);
+        form.append("previous_work",this.previous_work2);
+        form.append("education", this.education2);
+        form.append("department", this.department2);
+        form.append("birthdate", this.birthdate);
+        form.append("phone_number",this.phone_number);
+        form.append("status",this.status);
+
+        form.append("email", this.email);
+        form.append("management_category_id", this.selectitem);
+      }
+
       this.$http.put('/api/leaders/'+this.$route.query.id+'/',
           form,
           {
@@ -617,18 +642,7 @@ export default {
 
             })
 
-            this.title=''
-            this.document_number=''
-            this.published_date=''
-            this.leader=''
-            this.reception=''
-            this.task=''
-            this.previous_work=''
-            this.education=''
-            this.department=''
-            this.birthdate=''
-            this.phone_number=''
-            this.email=''
+
           })
 
           .catch(error =>{
@@ -697,20 +711,37 @@ export default {
     put_uzk(){
 
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("leader", this.leader3);
-      form.append("title", this.title3);
-      form.append("reception", this.reception3);
-      form.append("task", this.task3);
-      form.append("previous_work",this.previous_work3);
-      form.append("education", this.education3);
-      form.append("department", this.department3);
-      form.append("birthdate", this.birthdate);
-      form.append("phone_number",this.phone_number);
-      form.append("status",this.status);
+      if (this.myImages.length==0){
+        form.append("leader", this.leader2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("task", this.task2);
+        form.append("previous_work",this.previous_work2);
+        form.append("education", this.education2);
+        form.append("department", this.department2);
+        form.append("birthdate", this.birthdate);
+        form.append("phone_number",this.phone_number);
+        form.append("status",this.status);
 
-      form.append("email", this.email);
-      form.append("management_category_id", this.selectitem);
+        form.append("email", this.email);
+        form.append("management_category_id", this.selectitem);
+      }
+      else {
+        form.append("image", this.myImages[0]);
+        form.append("leader", this.leader2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("task", this.task2);
+        form.append("previous_work",this.previous_work2);
+        form.append("education", this.education2);
+        form.append("department", this.department2);
+        form.append("birthdate", this.birthdate);
+        form.append("phone_number",this.phone_number);
+        form.append("status",this.status);
+
+        form.append("email", this.email);
+        form.append("management_category_id", this.selectitem);
+      }
       this.$http.put('/api/leaders/'+this.$route.query.id+'/',
 
           form,
@@ -727,18 +758,7 @@ export default {
               'type':'info'
 
             })
-            this.title=''
-            this.document_number=''
-            this.published_date=''
-            this.leader=''
-            this.reception=''
-            this.task=''
-            this.previous_work=''
-            this.education=''
-            this.department=''
-            this.birthdate=''
-            this.phone_number=''
-            this.email=''
+
           })
 
           .catch(error =>{
@@ -807,20 +827,37 @@ export default {
     put_en(){
 
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("leader", this.leader4);
-      form.append("title", this.title4);
-      form.append("reception", this.reception4);
-      form.append("task", this.task4);
-      form.append("previous_work",this.previous_work4);
-      form.append("education", this.education4);
-      form.append("department", this.department4);
-      form.append("birthdate", this.birthdate);
-      form.append("phone_number",this.phone_number);
-      form.append("status",this.status);
+      if (this.myImages.length==0){
+        form.append("leader", this.leader2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("task", this.task2);
+        form.append("previous_work",this.previous_work2);
+        form.append("education", this.education2);
+        form.append("department", this.department2);
+        form.append("birthdate", this.birthdate);
+        form.append("phone_number",this.phone_number);
+        form.append("status",this.status);
 
-      form.append("email", this.email);
-      form.append("management_category_id", this.selectitem);
+        form.append("email", this.email);
+        form.append("management_category_id", this.selectitem);
+      }
+      else {
+        form.append("image", this.myImages[0]);
+        form.append("leader", this.leader2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("task", this.task2);
+        form.append("previous_work",this.previous_work2);
+        form.append("education", this.education2);
+        form.append("department", this.department2);
+        form.append("birthdate", this.birthdate);
+        form.append("phone_number",this.phone_number);
+        form.append("status",this.status);
+
+        form.append("email", this.email);
+        form.append("management_category_id", this.selectitem);
+      }
       this.$http.put('/api/leaders/'+this.$route.query.id+'/',
 
           form,
@@ -838,18 +875,7 @@ export default {
 
             })
 
-            this.title=''
-            this.document_number=''
-            this.published_date=''
-            this.leader=''
-            this.reception=''
-            this.task=''
-            this.previous_work=''
-            this.education=''
-            this.department=''
-            this.birthdate=''
-            this.phone_number=''
-            this.email=''
+
           })
 
           .catch(error =>{

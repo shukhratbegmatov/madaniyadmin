@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar></Navbar><div>
+    <div>
     <Navbar></Navbar>
     <div class="container-fluid p-0">
       <div class="row">
@@ -175,7 +175,7 @@
                       </defs>
                     </svg>
                   </button></div>
-                <img :src="imageUrl[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+                <img :src="imageUrl[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
               </div>
               <label for="cr_image" class="btn btn-primary file_label">Image</label>
             </div>
@@ -210,7 +210,7 @@
                     </svg>
                   </button>
                 </div>
-                <img :src="imageUrl1[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+                <img :src="imageUrl1[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
               </div>
               <label for="cr_imagee" class="btn btn-primary file_label">Logo</label>
             </div>
@@ -225,7 +225,6 @@
   </div>
 </template>
 <script>
-
 import {
   quillEditor
 } from "vue-quill-editor";
@@ -235,7 +234,7 @@ export default {
   components: {
     Navbar,
     quillEditor,
-    Side_menu
+    Side_menu,
   },
   data(){
     return{
@@ -277,6 +276,8 @@ export default {
 
           this.title1=res.data.title
           this.description1=res.data.description
+          this.imageUrl.push(res.data.pc_image)
+          this.imageUrl1.push(res.data.logo)
         })
 
     this.$http.get('/api/slider/'+this.$route.query.id,{

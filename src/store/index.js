@@ -163,8 +163,8 @@ export default new Vuex.Store({
           })
     },
 
-    museum({state}){
-      axios.get('/api/museum',{
+    museum({state},cre){
+      axios.get('/api/museum?page='+cre.page_size,{
         headers:{
           'Accept-Language':'uz-latn'
         }
@@ -196,8 +196,8 @@ export default new Vuex.Store({
           })
     },
 
-    press({state}){
-      axios.get('/api/press-secretary',{
+    press({state},cre){
+      axios.get('/api/press-secretary?page='+cre.page_size,{
         headers:{
           'Accept-Language':'uz-latn'
         }

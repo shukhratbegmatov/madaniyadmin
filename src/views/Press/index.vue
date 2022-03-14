@@ -72,7 +72,7 @@
           </table>
           <div class="pagenations">
             <paginate
-                :page-count="$store.state.heritage_main.total_pages"
+                :page-count="$store.state.press.total_pages"
                 :page-range="3"
                 :margin-pages="2"
                 :click-handler="clickCallback"
@@ -103,7 +103,7 @@ export default {
   data() {
     return {
       data: [],
-      page_size:10
+      page_size:1
     }
   },
 
@@ -113,6 +113,12 @@ export default {
     })
   },
   methods: {
+    clickCallback (pageNum){
+      console.log(pageNum)
+      this.$store.dispatch('press',{
+        "page_size":pageNum
+      })
+    },
     selected_page_size(){
       this.$store.dispatch('press',{
         "page_size":this.page_size

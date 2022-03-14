@@ -174,7 +174,7 @@
                       </defs>
                     </svg>
                   </button></div>
-                <img :src="imageUrl[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+                <img :src="imageUrl[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
               </div>
               <label for="cr_image" class="btn btn-primary file_label">Image</label>
             </div>
@@ -208,7 +208,7 @@
                     </defs>
                   </svg>
                 </button></div>
-                <img :src="imageUrl1[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+                <img :src="imageUrl1[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
               </div>
               <label for="cr_imagee" class="btn btn-primary file_label">Logo</label>
             </div>

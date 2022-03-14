@@ -70,19 +70,19 @@
 
             </tbody>
           </table>
-<!--          <div class="pagenations">-->
-<!--            <paginate-->
-<!--                :page-count="$store.state.museum.total_pages"-->
-<!--                :page-range="3"-->
-<!--                :margin-pages="2"-->
-<!--                :click-handler="clickCallback"-->
-<!--                :prev-text="'Prev'"-->
-<!--                :next-text="'Next'"-->
-<!--                :container-class="'pagination'"-->
-<!--                :page-class="'page-item'"-->
-<!--            >-->
-<!--            </paginate>-->
-<!--          </div>-->
+          <div class="pagenations">
+            <paginate
+                :page-count="$store.state.museum.total_pages"
+                :page-range="3"
+                :margin-pages="2"
+                :click-handler="clickCallback"
+                :prev-text="'Prev'"
+                :next-text="'Next'"
+                :container-class="'pagination'"
+                :page-class="'page-item'"
+            >
+            </paginate>
+          </div>
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@ export default {
   data() {
     return {
       data: [],
-      page_size:100
+      page_size:1
     }
   },
 
@@ -113,6 +113,12 @@ export default {
     })
   },
   methods: {
+    clickCallback (pageNum){
+      console.log(pageNum)
+      this.$store.dispatch('heritage_main',{
+        "page_size":pageNum
+      })
+    },
     selected_page_size(){
       this.$store.dispatch('museum',{
         "page_size":this.page_size

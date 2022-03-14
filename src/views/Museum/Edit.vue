@@ -244,7 +244,7 @@
                   </svg>
                 </button></div>
               <div v-for="item in imageUrl" :key="item">
-                <img :src="item" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+                <img :src="item" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
               </div>
             </div>
             <input type="file" class="d-none" id="cr_image"
@@ -281,7 +281,7 @@
                   </svg>
                 </button></div>
               <div >
-                <img :src="imageUrl1[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+                <img :src="imageUrl1[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
               </div>
             </div>
             <input type="file" class="d-none" id="cr_imagee"
@@ -380,6 +380,9 @@ export default {
           this.latitude=res.data.latitude
           this.longitude=res.data.longitude
           this.is_status=res.data.status
+          this.imageUrl1.push(res.data.main_image)
+          this.imageUrl.push(res.data.images[0].image)
+          console.log(res.data)
         })
 
 
@@ -464,9 +467,22 @@ export default {
     },
     post_ru(){
       const form = new FormData();
-      for(let i=0;i<this.myImages.length;i++){
-        form.append(`images[${i}]image`, this.myImages[i]);
+      if(this.myImages1.length==0||this.myImages.length==0){
+
+        form.append("address", this.address1);
+        form.append("title", this.title1);
+        form.append("reception", this.reception1);
+        form.append("description", this.description1);
+        form.append("phone_number",this.phone_number);
+        form.append("longitude",this.longitude);
+        form.append("latitude",this.latitude);
+        form.append("status",this.is_status);
+        form.append("website",this.website);
       }
+      else{
+        for(let i=0;i<this.myImages.length;i++){
+          form.append(`images[${i}]image`, this.myImages[i]);
+        }
       form.append("main_image", this.myImages1[0]);
       form.append("address", this.address1);
       form.append("title", this.title1);
@@ -477,6 +493,7 @@ export default {
       form.append("latitude",this.latitude);
       form.append("status",this.is_status);
       form.append("website",this.website);
+      }
       this.$http.put('/api/museum/'+this.$route.query.id+'/',
           form,
           {
@@ -549,19 +566,35 @@ export default {
     put_uzl(){
 
       const form = new FormData();
-      for(let i=0;i<this.myImages.length;i++){
-        form.append(`images[${i}]image`, this.myImages[i]);
+
+      if(this.myImages1.length==0 ||this.myImages.length==0){
+
+        form.append("address", this.address2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("description", this.description2);
+        form.append("phone_number",this.phone_number);
+        form.append("longitude",this.longitude);
+        form.append("latitude",this.latitude);
+        form.append("status",this.is_status);
+        form.append("website",this.website);
+
       }
-      form.append("main_image", this.myImages1[0]);
-      form.append("address", this.address2);
-      form.append("title", this.title2);
-      form.append("reception", this.reception2);
-      form.append("description", this.description2);
-      form.append("phone_number",this.phone_number);
-      form.append("longitude",this.longitude);
-      form.append("latitude",this.latitude);
-      form.append("status",this.is_status);
-      form.append("website",this.website);
+      else {
+        for(let i=0;i<this.myImages.length;i++){
+          form.append(`images[${i}]image`, this.myImages[i]);
+        }
+        form.append("main_image", this.myImages1[0]);
+        form.append("address", this.address2);
+        form.append("title", this.title2);
+        form.append("reception", this.reception2);
+        form.append("description", this.description2);
+        form.append("phone_number", this.phone_number);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("status", this.is_status);
+        form.append("website", this.website);
+      }
       this.$http.put('/api/museum/'+this.$route.query.id+'/',
           form,
           {
@@ -633,19 +666,34 @@ export default {
     put_uzk(){
 
       const form = new FormData();
-      for(let i=0;i<this.myImages.length;i++){
-        form.append(`images[${i}]image`, this.myImages[i]);
+
+      if(this.myImages1.length==0||this.myImages.length==0) {
+
+        form.append("address", this.address3);
+        form.append("title", this.title3);
+        form.append("reception", this.reception3);
+        form.append("description", this.description3);
+        form.append("phone_number", this.phone_number);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("status", this.is_status);
+        form.append("website", this.website);
       }
-      form.append("main_image", this.myImages1[0]);
-      form.append("address", this.address3);
-      form.append("title", this.title3);
-      form.append("reception", this.reception3);
-      form.append("description", this.description3);
-      form.append("phone_number",this.phone_number);
-      form.append("longitude",this.longitude);
-      form.append("latitude",this.latitude);
-      form.append("status",this.is_status);
-      form.append("website",this.website);
+      else {
+        for(let i=0;i<this.myImages.length;i++){
+          form.append(`images[${i}]image`, this.myImages[i]);
+        }
+        form.append("main_image", this.myImages1[0]);
+        form.append("address", this.address3);
+        form.append("title", this.title3);
+        form.append("reception", this.reception3);
+        form.append("description", this.description3);
+        form.append("phone_number", this.phone_number);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("status", this.is_status);
+        form.append("website", this.website);
+      }
       this.$http.put('/api/museum/'+this.$route.query.id+'/',
 
           form,
@@ -718,19 +766,34 @@ export default {
     put_en(){
 
       const form = new FormData();
-      for(let i=0;i<this.myImages.length;i++){
-        form.append(`images[${i}]image`, this.myImages[i]);
+
+      if(this.myImages1.length==0||this.myImages.length==0) {
+
+        form.append("address", this.address4);
+        form.append("title", this.title4);
+        form.append("reception", this.reception4);
+        form.append("description", this.description4);
+        form.append("phone_number", this.phone_number);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("status", this.is_status);
+        form.append("website", this.website);
       }
-      form.append("main_image", this.myImages1[0]);
-      form.append("address", this.address4);
-      form.append("title", this.title4);
-      form.append("reception", this.reception4);
-      form.append("description", this.description4);
-      form.append("phone_number",this.phone_number);
-      form.append("longitude",this.longitude);
-      form.append("latitude",this.latitude);
-      form.append("status",this.is_status);
-      form.append("website",this.website);
+      else {
+        for(let i=0;i<this.myImages.length;i++){
+          form.append(`images[${i}]image`, this.myImages[i]);
+        }
+        form.append("main_image", this.myImages1[0]);
+        form.append("address", this.address4);
+        form.append("title", this.title4);
+        form.append("reception", this.reception4);
+        form.append("description", this.description4);
+        form.append("phone_number", this.phone_number);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("status", this.is_status);
+        form.append("website", this.website);
+      }
       this.$http.put('/api/museum/'+this.$route.query.id+'/',
 
           form,

@@ -180,7 +180,7 @@
             </div>
             <div class="main_image">
               <div>Main image</div>
-              <img :src="imageUrl[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+              <img :src="imageUrl[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
             </div>
             <input type="file" class="d-none" id="cr_image"
                    multiple
@@ -195,7 +195,7 @@
 
             <div class="main_image">
               <div>Image</div>
-              <img :src="imageUrl1[0]" width="97%" height="80px" style="object-fit: cover;margin-bottom: 40px" alt="">
+              <img :src="imageUrl1[0]" width="97%" height="300px" style="object-fit: cover;margin-bottom: 40px" alt="">
             </div>
             <input type="file" class="d-none" id="cr_imagee"
                    multiple

@@ -14,6 +14,13 @@
       <b-card no-body>
         <div class="row">
           <div class="col-md-3 media m-3">
+
+            <div class="st_btn">
+              <button :class="{'active':lang=='uz-latn'}" @click="lang='uz-latn'">Uz latin</button>
+              <button :class="{'active':lang=='ru'}" @click="lang='ru'">Rus</button>
+              <button :class="{'active':lang=='uz-cyrl'}" @click="lang='uz-cyrl'">Uz cyrl</button>
+              <button :class="{'active':lang=='en'}" @click="lang='en'">English</button>
+            </div>
             <input type="file" class="d-none" id="cr_image"
                    multiple
                    @change="trySubmitFile"
@@ -51,7 +58,8 @@ export default {
       myImages:[],
       imageUrl:[],
       files_name:[],
-      id:''
+      id:'',
+      lang:'uz-latn'
     }
   },
   methods:{
@@ -79,7 +87,7 @@ export default {
           {
             headers: {
               'Authorization': 'Token ' + localStorage.getItem('m_token'),
-              'Accept-Language':'ru'
+              'Accept-Language':this.lang
             }
           })
 
@@ -90,6 +98,9 @@ export default {
 
             })
             this.id=res.data.id
+            this.myImages=[]
+            this.imageUrl=[]
+            this.files_name=[]
           })
     },
     put_uzl(){
@@ -176,5 +187,14 @@ export default {
 }
 .file_label{
   width: 200px;
+}
+.st_btn button{
+  border: 0;
+  color: #ffffff;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.st_btn button.active{
+  background: #0a0e17 !important;
 }
 </style>
