@@ -14,6 +14,11 @@
           </router-link>
         </div>
         <div class="nav-items">
+          <router-link to="/journal" class="nav-link d-flex align-items-center">
+            <span class="sidebar-text">Журнал</span>
+          </router-link>
+        </div>
+        <div class="nav-items">
           <router-link to="/document" class="nav-link d-flex align-items-center">
             <span class="sidebar-text">Файлы и документы</span>
           </router-link>
@@ -81,11 +86,6 @@
         <div class="nav-items">
           <router-link to="/object" class="nav-link d-flex align-items-center">
             <span class="sidebar-text">Объекты ЮНЕСКО</span>
-          </router-link>
-        </div>
-        <div class="nav-items">
-          <router-link to="/council-advice" class="nav-link d-flex align-items-center">
-            <span class="sidebar-text">Научно-экспертный совет</span>
           </router-link>
         </div>
         <div class="nav-items">

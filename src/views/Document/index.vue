@@ -102,7 +102,7 @@ export default {
   data() {
     return {
       data: [],
-      page_size:100
+      page_size:1
     }
   },
 
@@ -112,6 +112,12 @@ export default {
     })
   },
   methods: {
+    clickCallback (pageNum){
+      console.log(pageNum)
+      this.$store.dispatch('document',{
+        "page_size":pageNum
+      })
+    },
     selected_page_size(){
       this.$store.dispatch('document',{
         "page_size":this.page_size

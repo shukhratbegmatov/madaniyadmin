@@ -143,7 +143,7 @@ export default new Vuex.Store({
     },
 
     document({state},creditailes){
-      axios.get('/api/docs?page_size'+creditailes.page_size,{
+      axios.get('/api/docs?page='+creditailes.page_size,{
         headers:{
           'Accept-Language':'uz-latn'
         }

@@ -27,7 +27,15 @@
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
                       </div>
+                      <div>
+                        <label for="first_name">description</label>
 
+                        <quill-editor
+                            :required="true"
+                            ref="myQuillEditorOrg"
+                            v-model="description2"
+                        />
+                      </div>
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -45,7 +53,15 @@
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
                       </div>
+                      <div>
+                        <label for="first_name">description</label>
 
+                        <quill-editor
+                            :required="true"
+                            ref="myQuillEditorOrg"
+                            v-model="description1"
+                        />
+                      </div>
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -64,6 +80,15 @@
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
                       </div>
+                      <div>
+                        <label for="first_name">description</label>
+
+                        <quill-editor
+                            :required="true"
+                            ref="myQuillEditorOrg"
+                            v-model="description3"
+                        />
+                      </div>
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -81,6 +106,15 @@
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
+                      </div>
+                      <div>
+                        <label for="first_name">description</label>
+
+                        <quill-editor
+                            :required="true"
+                            ref="myQuillEditorOrg"
+                            v-model="description4"
+                        />
                       </div>
                     </div>
                     <div class="mt-3">
@@ -178,6 +212,10 @@ export default {
       myImages:[],
       imageUrl:[],
       files_name:[],
+      description1:'',
+      description2:'',
+      description3:'',
+      description4:''
 
     }
   },
@@ -211,6 +249,7 @@ export default {
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
+      form.append("description", this.description1);
 
       form.append("link", this.link);
       form.append("document_number", this.document_number);
@@ -257,6 +296,8 @@ export default {
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
+      form.append("description", this.description2);
+      form.append("link", this.link);
       form.append("document_number", this.document_number);
       form.append("document_category_id", this.selectitem);
       form.append("published_date", this.published_date);
@@ -303,6 +344,8 @@ export default {
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
+      form.append("link", this.link);
+      form.append("description", this.description3);
       form.append("document_number", this.document_number);
       form.append("document_category_id", this.selectitem);
       form.append("published_date", this.published_date);
@@ -349,6 +392,8 @@ export default {
       const form = new FormData();
       form.append("file", this.myImages[0]);
       form.append("title", this.title);
+      form.append("link", this.link);
+      form.append("description", this.description4);
       form.append("document_number", this.document_number);
       form.append("document_category_id", this.selectitem);
       form.append("published_date", this.published_date);
