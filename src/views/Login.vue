@@ -45,7 +45,6 @@
               <div class="d-grid login_btn">
                 <button type="submit" class="btn">
                   <span v-if="!spinner">войти</span>
-                  <b-spinner v-if="spinner"></b-spinner>
                 </button>
               </div>
             </form>

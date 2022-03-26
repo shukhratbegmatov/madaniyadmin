@@ -1,6 +1,6 @@
 
 <template>
-    <div class="col-xl-2 p-0 mw_menus"  :class="{'active':!$store.state.isactive}">
+    <div class="col-2 p-0 mw_menus"  :class="{'active':!$store.state.isactive}">
       <div class="side_menus ">
       <div class="nav">
         <div class="nav-items">
@@ -162,5 +162,9 @@
   border-radius: 5px;
   color: #ffffff;
 }
+@media (max-width: 1200px) {
+  .side_menus{
 
+  }
+}
 </style>
