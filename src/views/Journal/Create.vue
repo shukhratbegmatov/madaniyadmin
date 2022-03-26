@@ -30,7 +30,7 @@
 
                   <div class="col-md-6">
                       <div class="image_groups"> Clear documents
-                        <button @click="imageUrl=[];myImages=[]">
+                        <div @click="imageUrl=[];myImages=[]">
                           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_d_1112_13609)">
                               <path d="M6 20C6 10.0589 14.0589 2 24 2C33.9411 2 42 10.0589 42 20C42 29.9411 33.9411 38 24 38C14.0589 38 6 29.9411 6 20Z" fill="#FEF8E6"/>
@@ -49,7 +49,7 @@
                               </filter>
                             </defs>
                           </svg>
-                        </button></div>
+                        </div></div>
                     <div>
                     </div>
                       <input type="file" class="d-none" id="cr_image"
@@ -81,61 +81,6 @@
                 <div class="col-md-6">
                   <button class="text-white btn">Create</button>
                 </div>
-<!--                <div class="col-md-3 media">-->
-<!--                  <div class="col-md-12  mb-3">-->
-<!--                    <div>-->
-<!--                      <label for="first_name">Journal_number</label>-->
-<!--                      <input class="form-control" id="first_namee" v-model="document_number" type="text"  required>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-md-12  mb-3">-->
-<!--                    <div>-->
-<!--                      <label for="first_name">published_date</label>-->
-<!--                      <input class="form-control" id="first_namee" v-model="published_date" type="date"  required>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="image_groups"> Clear documents-->
-<!--                    <button @click="imageUrl=[];myImages=[]">-->
-<!--                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                        <g filter="url(#filter0_d_1112_13609)">-->
-<!--                          <path d="M6 20C6 10.0589 14.0589 2 24 2C33.9411 2 42 10.0589 42 20C42 29.9411 33.9411 38 24 38C14.0589 38 6 29.9411 6 20Z" fill="#FEF8E6"/>-->
-<!--                          <path d="M16 11.969L31.999 27.965M16 27.965L31.999 11.969" stroke="#05057D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>-->
-<!--                        </g>-->
-<!--                        <defs>-->
-<!--                          <filter id="filter0_d_1112_13609" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">-->
-<!--                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>-->
-<!--                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>-->
-<!--                            <feOffset dy="4"/>-->
-<!--                            <feGaussianBlur stdDeviation="3"/>-->
-<!--                            <feComposite in2="hardAlpha" operator="out"/>-->
-<!--                            <feColorMatrix type="matrix" values="0 0 0 0 0.595833 0 0 0 0 0.595833 0 0 0 0 0.595833 0 0 0 0.16 0"/>-->
-<!--                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1112_13609"/>-->
-<!--                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1112_13609" result="shape"/>-->
-<!--                          </filter>-->
-<!--                        </defs>-->
-<!--                      </svg>-->
-<!--                    </button></div>-->
-<!--                  <input type="file" class="d-none" id="cr_image"-->
-<!--                         multiple-->
-<!--                         @change="trySubmitFile"-->
-<!--                         accept="*"-->
-<!--                         name="datafiles"-->
-<!--                         ref="datafiles"-->
-<!--                  >-->
-<!--                  <div>-->
-<!--                    <label for="cr_image" class="btn btn-primary file_label">files</label>-->
-<!--                  </div>-->
-<!--                  <input type="file" class="d-none" id="cr_image"-->
-<!--                         multiple-->
-<!--                         @change="trySubmitFile"-->
-<!--                         accept="*"-->
-<!--                         name="datafiles"-->
-<!--                         ref="datafiles"-->
-<!--                  >-->
-<!--                  <div>-->
-<!--                    <label for="cr_image" class="btn btn-primary file_label">Image</label>-->
-<!--                  </div>-->
-<!--                </div>-->
               </div>
             </form>
             </b-card>

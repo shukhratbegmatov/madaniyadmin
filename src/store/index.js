@@ -34,7 +34,8 @@ export default new Vuex.Store({
     contacts:[],
     isLoading:false,
     refCount: 0,
-    opendata:[]
+    opendata:[],
+    journal:[]
   },
   mutations: {
     loading(state, isLoading) {
@@ -150,6 +151,16 @@ export default new Vuex.Store({
       })
           .then(res=>{
             state.document=res.data
+          })
+    },
+    journal({state},creditailes){
+      axios.get('/api/journal?page='+creditailes.page_size,{
+        headers:{
+          'Accept-Language':'uz-latn'
+        }
+      })
+          .then(res=>{
+            state.journal=res.data
           })
     },
     contact_func({state},creditailes){

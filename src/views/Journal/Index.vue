@@ -50,11 +50,11 @@
                     <th>Action</th>
                   </tr>
                   </thead>
-                  <tbody v-if=" $store.state.document">
-                  <tr v-for="(item,index) in  $store.state.document.results" :key="index">
+                  <tbody v-if=" $store.state.journal">
+                  <tr v-for="(item,index) in  $store.state.journal.results" :key="index">
 
                     <td><div class="father_tabel">{{ item.id }}</div></td>
-                    <td><div class="father_tabel">{{ item.title }}</div></td>
+                    <td><div class="father_tabel">{{ new Date(item.published_date).toLocaleDateString() }}</div></td>
                     <td><div class="father_tabel">{{ item.document_number  }}</div></td>
                     <td><div class="father_tabel">{{ item.updated_on }}</div></td>
                     <td>
@@ -71,7 +71,7 @@
                 </table>
                 <div class="pagenations">
                   <paginate
-                      :page-count="$store.state.document.total_pages"
+                      :page-count="$store.state.journal.total_pages"
                       :page-range="3"
                       :margin-pages="2"
                       :click-handler="clickCallback"
@@ -107,7 +107,7 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch('document',{
+    this.$store.dispatch('journal',{
       "page_size":this.page_size
     })
   },
@@ -127,7 +127,7 @@ export default {
 
       let isBoss = confirm("You really want to delete?");
       if (isBoss == true) {
-        this.$http.delete('/api/docs/' + item + '/',
+        this.$http.delete('/api/journal/' + item + '/',
             {
               headers: {
                 'Authorization': 'Token ' + localStorage.getItem('m_token'),
