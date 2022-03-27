@@ -115,7 +115,7 @@ export default {
   methods: {
     clickCallback (pageNum){
       console.log(pageNum)
-      this.$store.dispatch('heritage_main',{
+      this.$store.dispatch('museum',{
         "page_size":pageNum
       })
     },

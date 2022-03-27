@@ -125,6 +125,10 @@
             <img :src="item.pc_image" alt="">
           </a>
 
+          <a class="file-item-img" v-else-if="item.main_image" :href="item.main_image" download target="_blank" >
+            <img :src="item.main_image" alt="">
+          </a>
+
           <a v-else class="file-item-img" :href="item.file" download target="_blank" >
 
             <svg width="42" height="54" viewBox="0 0 42 54" fill="none" xmlns="http://www.w3.org/2000/svg">

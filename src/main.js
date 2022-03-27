@@ -7,7 +7,7 @@ import store from './store'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import axios from 'axios'
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = "http://backend.madaniymeros.uz/v1"||"https://backend.madaniymeros.uz/v1"
+axios.defaults.baseURL = "https://backend.madaniymeros.uz/v1"
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Toasted from 'vue-toasted';
