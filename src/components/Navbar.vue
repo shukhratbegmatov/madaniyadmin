@@ -91,7 +91,7 @@
           </div>
           <div class="drops_menus">
             <button @click="isdrop=!isdrop">
-              <img src="../assets/assets/img/autors.jpg" alt="">
+              <img src="../assets/madaniylogo.jpg" alt="">
             </button>
             <div class="drop_menu" :class="{'active':isdrop}">
               <div class="drop_link">

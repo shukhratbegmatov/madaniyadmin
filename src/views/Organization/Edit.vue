@@ -21,6 +21,12 @@
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader1" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title1" type="text"  required>
                         </div>
@@ -33,14 +39,13 @@
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader1" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
                           <label for="first_name">about</label>
-                          <input class="form-control" id="first_namee" v-model="about1" type="text"  required>
+
+                          <quill-editor
+                              :required="true"
+                              ref="myQuillEditorOrg"
+                              v-model="about1"
+                          />
                         </div>
                       </div>
 
@@ -60,6 +65,12 @@
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader2" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title2" type="text"  required>
                         </div>
@@ -72,14 +83,13 @@
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader2" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
                           <label for="first_name">about</label>
-                          <input class="form-control" id="first_namee" v-model="about2" type="text"  required>
+
+                          <quill-editor
+                              :required="true"
+                              ref="myQuillEditorOrg"
+                              v-model="about2"
+                          />
                         </div>
                       </div>
 
@@ -98,6 +108,12 @@
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader3" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title3" type="text"  required>
                         </div>
@@ -110,14 +126,13 @@
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader3" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
                           <label for="first_name">about</label>
-                          <input class="form-control" id="first_namee" v-model="about3" type="text"  required>
+
+                          <quill-editor
+                              :required="true"
+                              ref="myQuillEditorOrg"
+                              v-model="about3"
+                          />
                         </div>
                       </div>
 
@@ -136,6 +151,12 @@
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader4" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title4" type="text"  required>
                         </div>
@@ -148,14 +169,13 @@
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader4" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
                           <label for="first_name">about</label>
-                          <input class="form-control" id="first_namee" v-model="about4" type="text"  required>
+
+                          <quill-editor
+                              :required="true"
+                              ref="myQuillEditorOrg"
+                              v-model="about4"
+                          />
                         </div>
                       </div>
 
@@ -294,6 +314,10 @@ export default {
           this.leader1=res.data.leader
           this.address1=res.data.address
           this.about1=res.data.about
+          this.phone_number=res.data.phone_number
+          this.website=res.data.website
+          this.email=res.data.email
+          this.imageUrl.push(res.data.image)
         })
 
     this.$http.get('/api/organization/'+this.$route.query.id,{
@@ -353,14 +377,27 @@ export default {
     },
     post_ru(){
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("website", this.website);
-      form.append("title", this.title);
-      form.append("address", this.address);
-      form.append("leader", this.leader);
-      form.append("about", this.about);
-      form.append("phone_number", this.phone_number);
-      form.append("email", this.email);
+      if(this.myImages.length==0){
+
+        form.append("website", this.website);
+        form.append("title", this.title1);
+        form.append("address", this.address1);
+        form.append("leader", this.leader1);
+        form.append("about", this.about1);
+        form.append("phone_number", this.phone_number);
+        form.append("email", this.email);
+      }
+      else {
+        form.append("image", this.myImages[0]);
+        form.append("website", this.website);
+        form.append("title", this.title1);
+        form.append("address", this.address1);
+        form.append("leader", this.leader1);
+        form.append("about", this.about1);
+        form.append("phone_number", this.phone_number);
+        form.append("email", this.email);
+      }
+
       this.$http.put('/api/organization/'+this.$route.query.id+'/',
           form,
           {
@@ -421,14 +458,27 @@ export default {
 
       const form = new FormData();
 
-      form.append("image", this.myImages[0]);
-      form.append("website", this.website);
-      form.append("title", this.title);
-      form.append("address", this.address);
-      form.append("leader", this.leader);
-      form.append("about", this.about);
-      form.append("phone_number", this.phone_number);
-      form.append("email", this.email);
+
+      if(this.myImages.length==0){
+
+        form.append("website", this.website);
+        form.append("title", this.title2);
+        form.append("address", this.address2);
+        form.append("leader", this.leader2);
+        form.append("about", this.about2);
+        form.append("phone_number", this.phone_number);
+        form.append("email", this.email);
+      }
+      else {
+        form.append("image", this.myImages[0]);
+        form.append("website", this.website);
+        form.append("title", this.title2);
+        form.append("address", this.address2);
+        form.append("leader", this.leader2);
+        form.append("about", this.about2);
+        form.append("phone_number", this.phone_number);
+        form.append("email", this.email);
+      }
       this.$http.put('/api/organization/'+this.$route.query.id+'/',
           form,
           {
@@ -488,14 +538,26 @@ export default {
     put_uzk(){
 
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("website", this.website);
-      form.append("title", this.title);
-      form.append("address", this.address);
-      form.append("leader", this.leader);
-      form.append("about", this.about);
-      form.append("phone_number", this.phone_number);
-      form.append("email", this.email);
+
+      if(this.myImages.length==0){
+        form.append("website", this.website);
+        form.append("title", this.title3);
+        form.append("address", this.address3);
+        form.append("leader", this.leader3);
+        form.append("about", this.about3);
+        form.append("phone_number", this.phone_number);
+        form.append("email", this.email);
+      }
+      else {
+        form.append("image", this.myImages[0]);
+        form.append("website", this.website);
+        form.append("title", this.title3);
+        form.append("address", this.address3);
+        form.append("leader", this.leader3);
+        form.append("about", this.about3);
+        form.append("phone_number", this.phone_number);
+        form.append("email", this.email);
+      }
       this.$http.put('/api/organization/'+this.$route.query.id+'/',
 
           form,
@@ -555,14 +617,27 @@ export default {
     put_en(){
 
       const form = new FormData();
-      form.append("image", this.myImages[0]);
-      form.append("website", this.website);
-      form.append("title", this.title);
-      form.append("address", this.address);
-      form.append("leader", this.leader);
-      form.append("about", this.about);
-      form.append("phone_number", this.phone_number);
-      form.append("email", this.email);
+
+      if(this.myImages.length==0){
+
+        form.append("website", this.website);
+        form.append("title", this.title4);
+        form.append("address", this.address4);
+        form.append("leader", this.leader4);
+        form.append("about", this.about4);
+        form.append("phone_number", this.phone_number);
+        form.append("email", this.email);
+      }
+      else {
+        form.append("image", this.myImages[0]);
+        form.append("website", this.website);
+        form.append("title", this.title4);
+        form.append("address", this.address4);
+        form.append("leader", this.leader4);
+        form.append("about", this.about4);
+        form.append("phone_number", this.phone_number);
+        form.append("email", this.email);
+      }
       this.$http.put('/api/organization/'+this.$route.query.id+'/',
 
           form,

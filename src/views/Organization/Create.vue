@@ -23,6 +23,12 @@
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
@@ -31,12 +37,6 @@
                         <div>
                           <label for="first_name">address</label>
                           <input class="form-control" id="first_namee" v-model="address" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
                         </div>
                       </div>
                       <div class="col-md-12  mb-3">
@@ -64,6 +64,12 @@
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
@@ -72,12 +78,6 @@
                         <div>
                           <label for="first_name">address</label>
                           <input class="form-control" id="first_namee" v-model="address" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
                         </div>
                       </div>
                       <div class="col-md-12  mb-3">
@@ -107,6 +107,12 @@
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
@@ -115,12 +121,6 @@
                         <div>
                           <label for="first_name">address</label>
                           <input class="form-control" id="first_namee" v-model="address" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
                         </div>
                       </div>
                       <div class="col-md-12  mb-3">
@@ -150,6 +150,12 @@
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
+                          <label for="first_name">leader</label>
+                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
                           <label for="first_name">Title</label>
                           <input class="form-control" id="first_namee" v-model="title" type="text"  required>
                         </div>
@@ -158,12 +164,6 @@
                         <div>
                           <label for="first_name">address</label>
                           <input class="form-control" id="first_namee" v-model="address" type="text"  required>
-                        </div>
-                      </div>
-                      <div class="col-md-12  mb-3">
-                        <div>
-                          <label for="first_name">leader</label>
-                          <input class="form-control" id="first_namee" v-model="leader" type="text"  required>
                         </div>
                       </div>
                       <div class="col-md-12  mb-3">
