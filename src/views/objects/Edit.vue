@@ -415,6 +415,10 @@ export default {
     }
   },
   mounted() {
+    this.$http.get('/api/heritage-category')
+        .then(res=>{
+          this.selected=res.data
+        })
     this.$http.get('/api/heritage/'+this.$route.query.id,
         {
           headers: {
@@ -422,20 +426,21 @@ export default {
           }
         })
         .then(res=>{
-          this.required_actions1=res.data.required_actions,
-          this.negative_effect1=res.data.negative_effect,
-          this.ownership_type1=res.data.ownership_type,
-          this.address1=res.data.address,
-          this.description1=res.data.description,
-          this.title1=res.data.title
-          this.latitude=res.data.latitude,
-        this.longitude=res.data.longitude,
-        this.is_on_Unesco=res.data.is_on_Unesco,
-        this.is_secure=res.data.is_secure,
-        this.technical_condition=res.data.technical_condition,
-        this.condition=res.data.condition
-          this.region=res.data.region
-          this.selectitem=res.data.heritage_category_id
+            this.required_actions1=res.data.required_actions,
+            this.negative_effect1=res.data.negative_effect,
+            this.ownership_type1=res.data.ownership_type,
+            this.address1=res.data.address,
+            this.description1=res.data.description,
+            this.title1=res.data.title
+            this.latitude=res.data.latitude,
+            this.longitude=res.data.longitude,
+            this.is_on_Unesco=res.data.is_on_Unesco,
+            this.is_secure=res.data.is_secure,
+            this.technical_condition=res.data.technical_condition,
+            this.condition=res.data.condition
+            this.region=res.data.region
+            this.selectitem=res.data.heritage_category_id
+            this.imageUrl.push(res.data.image)
         })
     this.$http.get('/api/heritage/'+this.$route.query.id,
         {
@@ -444,20 +449,20 @@ export default {
           }
         })
         .then(res=>{
-          this.required_actions2=res.data.required_actions,
+              this.required_actions2=res.data.required_actions,
               this.negative_effect2=res.data.negative_effect,
               this.ownership_type2=res.data.ownership_type,
               this.address2=res.data.address,
               this.description2=res.data.description,
               this.title2=res.data.title
-          this.latitude=res.data.latitude,
+              this.latitude=res.data.latitude,
               this.longitude=res.data.longitude,
               this.is_on_Unesco=res.data.is_on_Unesco,
               this.is_secure=res.data.is_secure,
               this.technical_condition=res.data.technical_condition,
               this.condition=res.data.condition
-          this.region=res.data.region
-          this.selectitem=res.data.heritage_category_id
+              this.region=res.data.region
+              this.selectitem=res.data.heritage_category_id
         })
     this.$http.get('/api/heritage/'+this.$route.query.id,
         {
@@ -466,20 +471,20 @@ export default {
           }
         })
         .then(res=>{
-          this.required_actions3=res.data.required_actions,
-              this.negative_effect3=res.data.negative_effect,
-              this.ownership_type3=res.data.ownership_type,
-              this.address3=res.data.address,
-              this.description3=res.data.description,
-              this.title3=res.data.title
-          this.latitude=res.data.latitude,
-              this.longitude=res.data.longitude,
-              this.is_on_Unesco=res.data.is_on_Unesco,
-              this.is_secure=res.data.is_secure,
-              this.technical_condition=res.data.technical_condition,
-              this.condition=res.data.condition
-          this.region=res.data.region
-          this.selectitem=res.data.heritage_category_id
+            this.required_actions3=res.data.required_actions,
+            this.negative_effect3=res.data.negative_effect,
+            this.ownership_type3=res.data.ownership_type,
+            this.address3=res.data.address,
+            this.description3=res.data.description,
+            this.title3=res.data.title
+            this.latitude=res.data.latitude,
+            this.longitude=res.data.longitude,
+            this.is_on_Unesco=res.data.is_on_Unesco,
+            this.is_secure=res.data.is_secure,
+            this.technical_condition=res.data.technical_condition,
+            this.condition=res.data.condition
+            this.region=res.data.region
+            this.selectitem=res.data.heritage_category_id
         })
     this.$http.get('/api/heritage/'+this.$route.query.id,
         {
@@ -488,25 +493,26 @@ export default {
           }
         })
         .then(res=>{
-          this.required_actions4=res.data.required_actions,
-              this.negative_effect4=res.data.negative_effect,
-              this.ownership_type4=res.data.ownership_type,
-              this.address4=res.data.address,
-              this.description4=res.data.description,
-              this.title4=res.data.title
-          this.latitude=res.data.latitude,
-              this.longitude=res.data.longitude,
-              this.is_on_Unesco=res.data.is_on_Unesco,
-              this.is_secure=res.data.is_secure,
-              this.technical_condition=res.data.technical_condition,
-              this.condition=res.data.condition
-          this.region=res.data.region
-          this.selectitem=res.data.heritage_category_id
+            this.required_actions4=res.data.required_actions,
+            this.negative_effect4=res.data.negative_effect,
+            this.ownership_type4=res.data.ownership_type,
+            this.address4=res.data.address,
+            this.description4=res.data.description,
+            this.title4=res.data.title
+            this.latitude=res.data.latitude,
+            this.longitude=res.data.longitude,
+            this.is_on_Unesco=res.data.is_on_Unesco,
+            this.is_secure=res.data.is_secure,
+            this.technical_condition=res.data.technical_condition,
+            this.condition=res.data.condition
+            this.region=res.data.region
+            this.selectitem=res.data.heritage_category_id
         })
   },
   methods:{
 
     trySubmitFile(e) {
+      this.imageUrl=[]
       for (let i = 0; i < e.target.files.length; i++) {
         this.files_name.push(e.target.files[i])
       }
@@ -523,6 +529,7 @@ export default {
       });
     },
     trySubmitFile1(e) {
+      this.imageUrl=[]
       for (let i = 0; i < e.target.files.length; i++) {
         this.files_name1.push(e.target.files[i])
       }
@@ -572,11 +579,7 @@ export default {
 
             })
             this.id=res.data.id
-            this.title='',
-                this.about='',
-                this.document_number='',
-                this.published_date='',
-                this.selectitem=''
+
           })
 
           .catch(error =>{
@@ -629,7 +632,24 @@ export default {
     put_uzl(){
 
       const form = new FormData();
+      if(this.myImages.length==0){
+        form.append("title", this.title2);
+        form.append("description", this.description2);
+        form.append("address", this.address2);
+        form.append("ownership_type", this.ownership_type2);
+        form.append("negative_effect", this.negative_effect2);
+        form.append("required_actions", this.required_actions2);
+        form.append("condition", this.condition);
+        form.append("technical_condition", this.technical_condition);
+        form.append("is_secure", this.is_secure);
+        form.append("is_on_Unesco", this.is_on_Unesco);
+        form.append("region", this.region);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("heritage_category_id", this.selectitem);
 
+      }
+      else {
       form.append("title", this.title2);
       form.append("description", this.description2);
       form.append("address", this.address2);
@@ -645,6 +665,8 @@ export default {
       form.append("latitude", this.latitude);
       form.append("heritage_category_id", this.selectitem);
       form.append("image", this.myImages[0]);
+      }
+
       this.$http.put('/api/heritage/'+this.$route.query.id+'/',
           form,
           {
@@ -661,11 +683,6 @@ export default {
 
             })
 
-            this.title=''
-            this.document_number='',
-                this.published_date='',
-                this.selectitem='',
-                this.about=''
           })
 
           .catch(error =>{
@@ -718,22 +735,40 @@ export default {
     put_uzk(){
 
       const form = new FormData();
+      if(this.myImages.length==0) {
 
-      form.append("title", this.title3);
-      form.append("description", this.description3);
-      form.append("address", this.address3);
-      form.append("ownership_type", this.ownership_type3);
-      form.append("negative_effect", this.negative_effect3);
-      form.append("required_actions", this.required_actions3);
-      form.append("condition", this.condition);
-      form.append("region", this.region);
-      form.append("technical_condition", this.technical_condition);
-      form.append("is_secure", this.is_secure);
-      form.append("is_on_Unesco", this.is_on_Unesco);
-      form.append("longitude", this.longitude);
-      form.append("latitude", this.latitude);
-      form.append("heritage_category_id", this.selectitem);
-      form.append("image", this.myImages[0]);
+        form.append("title", this.title3);
+        form.append("description", this.description3);
+        form.append("address", this.address3);
+        form.append("ownership_type", this.ownership_type3);
+        form.append("negative_effect", this.negative_effect3);
+        form.append("required_actions", this.required_actions3);
+        form.append("condition", this.condition);
+        form.append("region", this.region);
+        form.append("technical_condition", this.technical_condition);
+        form.append("is_secure", this.is_secure);
+        form.append("is_on_Unesco", this.is_on_Unesco);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("heritage_category_id", this.selectitem);
+      }
+      else {
+        form.append("title", this.title3);
+        form.append("description", this.description3);
+        form.append("address", this.address3);
+        form.append("ownership_type", this.ownership_type3);
+        form.append("negative_effect", this.negative_effect3);
+        form.append("required_actions", this.required_actions3);
+        form.append("condition", this.condition);
+        form.append("region", this.region);
+        form.append("technical_condition", this.technical_condition);
+        form.append("is_secure", this.is_secure);
+        form.append("is_on_Unesco", this.is_on_Unesco);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("heritage_category_id", this.selectitem);
+        form.append("image", this.myImages[0]);
+      }
       this.$http.put('/api/heritage/'+this.$route.query.id+'/',
           form,
           {
@@ -750,11 +785,7 @@ export default {
 
             })
 
-            this.title=''
-            this.about='',
-                this.document_number='',
-                this.published_date='',
-                this.selectitem=''
+
           })
 
           .catch(error =>{
@@ -807,22 +838,39 @@ export default {
     put_en(){
 
       const form = new FormData();
-
-      form.append("title", this.title4);
-      form.append("description", this.description4);
-      form.append("address", this.address4);
-      form.append("ownership_type", this.ownership_type4);
-      form.append("negative_effect", this.negative_effect4);
-      form.append("required_actions", this.required_actions4);
-      form.append("condition", this.condition);
-      form.append("technical_condition", this.technical_condition);
-      form.append("is_secure", this.is_secure);
-      form.append("is_on_Unesco", this.is_on_Unesco);
-      form.append("region", this.region);
-      form.append("longitude", this.longitude);
-      form.append("latitude", this.latitude);
-      form.append("heritage_category_id", this.selectitem);
-      form.append("image", this.myImages[0]);
+      if(this.myImages.length==0) {
+        form.append("title", this.title4);
+        form.append("description", this.description4);
+        form.append("address", this.address4);
+        form.append("ownership_type", this.ownership_type4);
+        form.append("negative_effect", this.negative_effect4);
+        form.append("required_actions", this.required_actions4);
+        form.append("condition", this.condition);
+        form.append("technical_condition", this.technical_condition);
+        form.append("is_secure", this.is_secure);
+        form.append("is_on_Unesco", this.is_on_Unesco);
+        form.append("region", this.region);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("heritage_category_id", this.selectitem);
+      }
+      else {
+        form.append("title", this.title4);
+        form.append("description", this.description4);
+        form.append("address", this.address4);
+        form.append("ownership_type", this.ownership_type4);
+        form.append("negative_effect", this.negative_effect4);
+        form.append("required_actions", this.required_actions4);
+        form.append("condition", this.condition);
+        form.append("technical_condition", this.technical_condition);
+        form.append("is_secure", this.is_secure);
+        form.append("is_on_Unesco", this.is_on_Unesco);
+        form.append("region", this.region);
+        form.append("longitude", this.longitude);
+        form.append("latitude", this.latitude);
+        form.append("heritage_category_id", this.selectitem);
+        form.append("image", this.myImages[0]);
+      }
       this.$http.put('/api/heritage/'+this.$route.query.id+'/',
           form,
           {
@@ -839,11 +887,6 @@ export default {
 
             })
 
-            this.about='',
-                this.title=''
-            this.document_number='',
-                this.published_date='',
-                this.selectitem=''
           })
 
           .catch(error =>{

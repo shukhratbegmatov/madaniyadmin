@@ -196,8 +196,8 @@ export default new Vuex.Store({
           })
     },
 
-    organization({state}){
-      axios.get('/api/organization',{
+    organization({state},cre){
+      axios.get('/api/organization?page='+cre.page_size,{
         headers:{
           'Accept-Language':'uz-latn'
         }

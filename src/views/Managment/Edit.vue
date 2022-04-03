@@ -283,7 +283,7 @@
             <div class="col-md-12  mb-3">
               <div>
                 <label for="first_name">Birthdate</label>
-                <input class="form-control" id="first_namee" v-model="birthdate1" type="date"  required>
+                <input class="form-control" id="first_namee" v-model="birthdate" type="date"  required>
               </div>
             </div>
             <div class="main_image">
@@ -410,6 +410,7 @@ export default {
           this.email=res.data.email
           this.selectitem=res.data.management_category_id
           this.status=res.data.status
+          this.birthdate=res.data.birthdate
         })
 
     this.$http.get('/api/leaders/'+this.$route.query.id,{
@@ -461,6 +462,8 @@ export default {
   },
   methods:{
     trySubmitFile(e) {
+      this.imageUrl=[]
+      this.myImages=[]
       console.log(e.target.files[0])
       for (let i = 0; i < e.target.files.length; i++) {
         this.files_name.push(e.target.files[i])

@@ -69,7 +69,7 @@
           </table>
           <div class="pagenations">
             <paginate
-                :page-count="$store.state.heritage_main.total_pages"
+                :page-count="$store.state.organization.total_pages"
                 :page-range="3"
                 :margin-pages="2"
                 :click-handler="clickCallback"
@@ -106,10 +106,16 @@ export default {
 
   mounted() {
     this.$store.dispatch('organization',{
-      "page_size":this.page_size
+      "page_size":1
     })
   },
   methods: {
+    clickCallback (pageNum){
+      console.log(pageNum)
+      this.$store.dispatch('organization',{
+        "page_size":pageNum
+      })
+    },
     selected_page_size(){
       this.$store.dispatch('organization',{
         "page_size":this.page_size

@@ -28,10 +28,31 @@
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">Url</label>
-                          <input class="form-control" id="first_namee" v-model="url" type="text"  required>
+                          <label for="first_name">description</label>
+                          <input class="form-control" id="first_namee" v-model="description" type="text"  required>
                         </div>
                       </div>
+
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">owner</label>
+                          <input class="form-control" id="first_namee" v-model="owner" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">contact</label>
+                          <input class="form-control" id="first_namee" v-model="contact" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">id_number</label>
+                          <input class="form-control" id="first_namee" v-model="id_number" type="text"  required>
+                        </div>
+                      </div>
+
+
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -42,19 +63,41 @@
               <b-tab title="Rus" >
                 <b-card-text>
                   <form @submit.prevent="post_ru()">
+
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
                           <label for="first_name">Title</label>
-                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
+                          <input class="form-control" id="first_namee" v-model="title2" type="text"  required>
                         </div>
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">Url</label>
-                          <input class="form-control" id="first_namee" v-model="url" type="text"  required>
+                          <label for="first_name">description</label>
+                          <input class="form-control" id="first_namee" v-model="description2" type="text"  required>
                         </div>
                       </div>
+
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">owner</label>
+                          <input class="form-control" id="first_namee" v-model="owner2" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">contact</label>
+                          <input class="form-control" id="first_namee" v-model="contact2" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">id_number</label>
+                          <input class="form-control" id="first_namee" v-model="id_number2" type="text"  required>
+                        </div>
+                      </div>
+
+
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -66,19 +109,41 @@
 
                 <b-card-text>
                   <form @submit.prevent="put_uzk()">
+
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
                           <label for="first_name">Title</label>
-                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
+                          <input class="form-control" id="first_namee" v-model="title3" type="text"  required>
                         </div>
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">Url</label>
-                          <input class="form-control" id="first_namee" v-model="url" type="text"  required>
+                          <label for="first_name">description</label>
+                          <input class="form-control" id="first_namee" v-model="description3" type="text"  required>
                         </div>
                       </div>
+
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">owner</label>
+                          <input class="form-control" id="first_namee" v-model="owner3" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">contact</label>
+                          <input class="form-control" id="first_namee" v-model="contact3" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">id_number</label>
+                          <input class="form-control" id="first_namee" v-model="id_number3" type="text"  required>
+                        </div>
+                      </div>
+
+
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -90,19 +155,52 @@
 
                 <b-card-text>
                   <form @submit.prevent="put_en()">
+
                     <div class="row">
                       <div class="col-md-12  mb-3">
                         <div>
                           <label for="first_name">Title</label>
-                          <input class="form-control" id="first_namee" v-model="title" type="text"  required>
+                          <input class="form-control" id="first_namee" v-model="title4" type="text"  required>
                         </div>
                       </div>
                       <div class="col-md-12  mb-3">
                         <div>
-                          <label for="first_name">Url</label>
-                          <input class="form-control" id="first_namee" v-model="url" type="text"  required>
+                          <label for="first_name">description</label>
+                          <input class="form-control" id="first_namee" v-model="description4" type="text"  required>
                         </div>
                       </div>
+
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">owner</label>
+                          <input class="form-control" id="first_namee" v-model="owner4" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">contact</label>
+                          <input class="form-control" id="first_namee" v-model="contact4" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">id_number</label>
+                          <input class="form-control" id="first_namee" v-model="id_number4" type="text"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">initial_published_date</label>
+                          <input class="form-control" id="first_namee" v-model="initial_published_date4" type="date"  required>
+                        </div>
+                      </div>
+                      <div class="col-md-12  mb-3">
+                        <div>
+                          <label for="first_name">last_published_date</label>
+                          <input class="form-control" id="first_namee" v-model="last_published_date4" type="date"  required>
+                        </div>
+                      </div>
+
                     </div>
                     <div class="mt-3">
                       <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
@@ -111,6 +209,37 @@
                 </b-card-text>
               </b-tab>
             </b-tabs>
+          </div>
+          <div class="col-md-3 media">
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">url</label>
+                <input class="form-control" id="first_namee" v-model="url" type="text"  required>
+              </div>
+            </div>
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">initial_published_date</label>
+                <input class="form-control" id="first_namee" v-model="initial_published_date" type="date"  required>
+              </div>
+            </div>
+            <div class="col-md-12  mb-3">
+              <div>
+                <label for="first_name">last_published_date</label>
+                <input class="form-control" id="first_namee" v-model="last_published_date" type="date"  required>
+              </div>
+            </div>
+            <div class="col-md-12  mb-3">
+              <input type="file"  id="cr_imagee"
+                     multiple
+                     @change="trySubmitFile1"
+                     accept="*"
+                     name="datafiles1"
+                     ref="datafiles1"
+              >
+              <div>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -133,7 +262,7 @@ export default {
     return{
       about:'',
       id:'',
-      title:'',
+
       selected:[],
       document_number:'',
       published_date:'',
@@ -146,6 +275,38 @@ export default {
       myImages1:[],
       imageUrl1:[],
       files_name1:[],
+
+      title:'',
+      description:'',
+      last_published_date:'',
+      initial_published_date:'',
+      id_number:'',
+      contact:'',
+      owner:'',
+
+      title2:'',
+      description2:'',
+      last_published_date2:'',
+      initial_published_date2:'',
+      id_number2:'',
+      contact2:'',
+      owner2:'',
+
+      title3:'',
+      description3:'',
+      last_published_date3:'',
+      initial_published_date3:'',
+      id_number3:'',
+      contact3:'',
+      owner3:'',
+
+      title4:'',
+      description4:'',
+      last_published_date4:'',
+      initial_published_date4:'',
+      id_number4:'',
+      contact4:'',
+      owner4:'',
 
     }
   },
@@ -194,8 +355,15 @@ export default {
       const form = new FormData();
 
 
-      form.append("title", this.title);
+      form.append("owner", this.owner2);
+      form.append("contact", this.contact2);
+      form.append("id_number", this.id_number2);
+      form.append("initial_published_date", this.initial_published_date);
+      form.append("last_published_date", this.last_published_date);
+      form.append("description", this.description2);
+      form.append("title", this.title2);
       form.append("url", this.url);
+      form.append("file", this.myImages1[0]);
       this.$http.put('/api/open-data/'+this.id+'/',
           form,
           {
@@ -229,8 +397,15 @@ export default {
       const form = new FormData();
 
 
+      form.append("owner", this.owner);
+      form.append("contact", this.contact);
+      form.append("id_number", this.id_number);
+      form.append("initial_published_date", this.initial_published_date);
+      form.append("last_published_date", this.last_published_date);
+      form.append("description", this.description);
       form.append("title", this.title);
       form.append("url", this.url);
+      form.append("file", this.myImages1[0]);
       this.$http.post('/api/open-data/',
           form,
           {
@@ -263,8 +438,15 @@ export default {
 
       const form = new FormData();
 
-      form.append("title", this.title);
+      form.append("owner", this.owner3);
+      form.append("contact", this.contact3);
+      form.append("id_number", this.id_number3);
+      form.append("initial_published_date", this.initial_published_date);
+      form.append("last_published_date", this.last_published_date);
+      form.append("description", this.description3);
+      form.append("title", this.title3);
       form.append("url", this.url);
+      form.append("file", this.myImages1[0]);
       this.$http.put('/api/open-data/'+this.id+'/',
           form,
           {
@@ -297,8 +479,15 @@ export default {
 
       const form = new FormData();
 
-      form.append("title", this.title);
+      form.append("owner", this.owner4);
+      form.append("contact", this.contact4);
+      form.append("id_number", this.id_number4);
+      form.append("initial_published_date", this.initial_published_date);
+      form.append("last_published_date", this.last_published_date);
+      form.append("description", this.description4);
+      form.append("title", this.title4);
       form.append("url", this.url);
+      form.append("file", this.myImages1[0]);
       this.$http.put('/api/open-data/'+this.id+'/',
           form,
           {

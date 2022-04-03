@@ -260,7 +260,7 @@
 
             <div class="main_image">
               <div class="image_groups"> clear files
-                <button @click="imageUrl=[];myImages=[]">
+                <button @click="imageUrl1=[];myImages1=[]">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_1112_13609)">
                       <path d="M6 20C6 10.0589 14.0589 2 24 2C33.9411 2 42 10.0589 42 20C42 29.9411 33.9411 38 24 38C14.0589 38 6 29.9411 6 20Z" fill="#FEF8E6"/>
