@@ -54,7 +54,7 @@
             <tr v-for="(item,index) in  $store.state.opendata.results" :key="index">
 
               <td><div class="father_tabel">{{ item.id }}</div></td>
-              <td><div class="father_tabel" v-html="item.about"></div></td>
+              <td><div class="father_tabel" v-html="item.title"></div></td>
               <td><div class="father_tabel">{{ item.created_on }}</div></td>
               <td><div class="father_tabel">{{ item.updated_on }}</div></td>
               <td>
